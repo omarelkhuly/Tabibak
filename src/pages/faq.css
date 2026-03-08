@@ -1,0 +1,134 @@
+/* src/components/Faq/faq.css */
+/* Hero Section */
+.faq-hero {
+    height: 300px;
+    background: url("../assets/FAQSECTION.jpg") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    /* overlay */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.faq-hero-overlay h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.faq-hero-overlay p {
+    font-size: 18px;
+}
+
+/* Hero section */
+/* FAQ section */
+.faq-section {
+    position: relative;
+    padding: 80px 0;
+    background: url("../assets/FAQPAGES.jpg") center/cover no-repeat;
+}
+
+.faq-overlay {
+    position: relative;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    /* overlay */
+    padding: 60px 0px;
+    border-radius: 12px;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: auto;
+    color: white;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: var(--accent-color);
+}
+
+/* FAQ list */
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: var(--card-color);
+    color: var(--black);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.faq-icon {
+    transition: 0.3s;
+}
+
+.faq-icon.rotate {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 15px 25px;
+    border-top: 1px solid var(--very-light-grey);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--grey);
+}
+
+/* FAQ section */
+
+/* responsive */
+@media(max-width:768px) {
+    .faq-hero {
+        height: 220px;
+    }
+
+    .faq-hero-overlay h1 {
+        font-size: 28px;
+    }
+
+    .faq-hero-overlay p {
+        font-size: 14px;
+    }
+
+    .faq-section {
+        padding: 10px 0;
+    }
+
+    .faq-question {
+        font-size: 15px;
+    }
+
+    .faq-answer {
+        font-size: 13px;
+    }
+}

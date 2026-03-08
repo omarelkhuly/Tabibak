@@ -1,0 +1,49 @@
+/* src/pages/blogPage.css */
+
+/* Hero Section */
+.blog-hero {
+    height: 300px;
+    background: url("../assets/BLOGSECTION.jpg") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 0;
+}
+
+.blog-hero-overlay h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.blog-hero-overlay p {
+    font-size: 18px;
+}
+
+/* Blog Cards Grid */
+.blog-section {
+    padding: 60px 8%;
+    background: var(--backGroundColor);
+}
+
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}

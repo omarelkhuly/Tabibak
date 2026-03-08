@@ -1,0 +1,31 @@
+:root {
+
+    /* Primary */
+    --primary-color: #008D8D;
+    --light-primary: #F0F8F8;
+
+    /* Accent */
+    --accent-color: #C8A96E;
+    --accent-light: #F5ECD8;
+
+    /* Background */
+    --scaffold-bg: #F7F8FA;
+    --background-color: #E8EDF5;
+    --card-color: #FFFFFF;
+
+    /* Text */
+    --black: #1A1C1E;
+    --light-black: #2E3035;
+    --white: #FFFFFF;
+
+    /* Grey */
+    --grey: #6B7280;
+    --light-grey: #D1D5DB;
+    --very-light-grey: #F3F4F6;
+
+    /* Status */
+    --green: #22C55E;
+    --red: #EF4444;
+    --orange: #F59E0B;
+
+}

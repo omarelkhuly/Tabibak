@@ -1,0 +1,83 @@
+/* الصفحة كاملة */
+
+.services-page {
+    width: 100%;
+}
+
+/* Hero */
+
+.services-hero {
+
+    height: 400px;
+
+    background-image: url("../assets//services.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+/* Overlay */
+
+.services-overlay {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 90%;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 20px 0;
+
+}
+
+.services-overlay h1 {
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+}
+
+.services-overlay p {
+
+    font-size: 18px;
+
+    max-width: 600px;
+
+}
+
+/* المحتوى */
+
+.services-content {
+
+    margin-top: 40px;
+
+}

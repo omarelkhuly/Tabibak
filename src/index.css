@@ -1,0 +1,117 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+#root {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #F5F5F5 !important;
+}
+
+body .menu-icon.sweezy-custom-cursor-hover {
+  color: #008d8d;
+}
+
+/* ================= LTR ================= */
+html[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
+html[dir="ltr"] .nav-actions {
+  margin-left: auto;
+}
+
+/* ================= RTL ================= */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .nav-actions {
+  margin-right: auto;
+}
+
+body.dark-mode {
+  /* Soft gradient background مشابه للصورة */
+  background: linear-gradient(135deg, #008D8D 0%, #0D2545 100%) !important;
+  color: #F5F5F5;
+  /* darkWhiteColor للنصوص */
+}
+
+/* Links */
+body.dark-mode a {
+  color: #b2c8d4;
+  /* accentColor */
+}
+
+body.dark-mode .nav-links.open a {
+  color: #0D2545;
+}
+
+body.dark-mode .nav-links.open a:hover {
+  color: #008D8D;
+}
+
+/* Navbar/Footer Dark Mode */
+body.dark-mode .navbar,
+body.dark-mode .footer {
+  background: linear-gradient(135deg, #008D8D -255%, #0D2545 100%);
+}
+
+body.dark-mode .navbar button.icon-btn,
+body.dark-mode .navbar .nav-actions svg,
+body.dark-mode .text_light_mode,
+body.dark-mode .menu-icon.sweezy-custom-cursor-hover {
+  color: #F5F5F5;
+}
+
+body .text_light_mode {
+  color: black;
+}
+
+/* Cards / Components */
+body.dark-mode .card {
+  background: linear-gradient(135deg, #008D8D 0%, #0D2545 100%);
+  color: #F5F5F5;
+}
+
+@media (max-width: 992px) {
+  html[dir="rtl"] .nav-links {
+    left: -100%;
+    right: auto;
+  }
+
+  html[dir="rtl"] .nav-links.open {
+    left: 0;
+    right: auto;
+  }
+}

@@ -1,0 +1,159 @@
+/* HERO style */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background: url("../assets/hero-bg.png") no-repeat center center/cover;
+    background-size: cover;
+}
+
+.hero-content {
+    width: 40%;
+    margin-left: 15%;
+    padding: 10% 0;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.read-more-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #53c6b3;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.read-more-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 1200px) {
+    .hero-content {
+        width: 50%;
+        margin-left: 10%;
+        padding: 8% 0;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content {
+        width: 60%;
+        margin-left: 5%;
+        padding: 8% 0;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        justify-content: center;
+        text-align: center;
+        padding: 65px 0px;
+        background-position-x: right;
+    }
+
+    .hero-content {
+        width: 90%;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 30px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .read-more-btn {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-content h1 {
+        font-size: 35px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .read-more-btn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-section {
+        justify-content: center;
+        text-align: center;
+        padding: 45px 0px;
+        background-position-x: center;
+    }
+
+    .hero-content {
+        width: 95%;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 20px;
+    }
+
+    .hero-content p {
+        font-size: 12px;
+    }
+
+    .read-more-btn {
+        padding: 6px 18px;
+        font-size: 12px;
+    }
+}
+
+/* HERO style */
+
+/* contact section */
+.contact-page {
+    background-image: url("../assets/contactus.jpg") !important;
+}
+
+/* contact section */

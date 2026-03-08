@@ -1,0 +1,118 @@
+/* src/assets/dashboard.css */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1e1e2f;
+    color: white;
+    transition: width 0.3s;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    border-bottom: 1px solid #333;
+}
+
+.sidebar .logo {
+    font-size: 1.2em;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.nav-link {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: #333;
+}
+
+.nav-link.active {
+    background-color: #4CAF50;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+.dashboard-header {
+    background-color: #fff;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-menu span {
+    margin-right: 10px;
+}
+
+.user-menu button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dashboard-pages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.toggle-btn-global {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #1e1e2f;
+    color: white;
+    border: none;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        height: 100%;
+        z-index: 1000;
+        left: -250px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .toggle-btn-global {
+        display: block;
+    }
+}

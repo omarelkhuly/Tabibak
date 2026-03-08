@@ -1,0 +1,71 @@
+/* src/components/Features/features.css */
+
+.features-section {
+    position: relative;
+    padding: 80px 8%;
+    background: var(--backGroundColor);
+    text-align: center;
+    overflow: hidden;
+}
+
+.with-overlay {
+    /* يمكنك تغيير اللون والشفافية حسب رغبتك */
+    background: url("../../assets/Features.jpg") center/cover no-repeat;
+}
+
+.features-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    /* overlay dark */
+    z-index: 1;
+}
+
+/* ترفع المحتوى فوق الـ overlay */
+.features-title,
+.swiper,
+.feature-card {
+    position: relative;
+    z-index: 2;
+}
+
+.features-title {
+    font-size: 34px;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+/* card */
+.feature-card {
+    background: var(--card-color);
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    color: var(--black);
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.6;
+}

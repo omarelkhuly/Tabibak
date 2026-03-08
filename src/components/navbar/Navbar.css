@@ -1,0 +1,175 @@
+/* src/components/navbar/Navbar.css */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* padding: 20px 0; */
+  transition: all 0.3s ease;
+  z-index: 1000;
+  background-color: #afddcf;
+}
+
+.imgLogo {
+  width: 45%;
+}
+
+.navbar.scrolled {
+  background: #afddcf;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.navbar.shrink {
+  padding: 10px 0;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #008D8D;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #C8A96E;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1A1C1E;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #008D8D;
+}
+
+/* افتراضي Desktop */
+.nav-actions.desktop-only {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-actions.mobile-only {
+  display: none;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .imgLogo {
+    width: 25%;
+  }
+
+  .nav-actions.desktop-only {
+    display: none;
+    /* نخفي النسخة Desktop */
+  }
+
+  .nav-actions.mobile-only {
+    display: flex;
+    /* نعرض النسخة Mobile */
+    position: absolute;
+    right: 20%;
+    gap: 8px;
+  }
+
+  html[dir="rtl"] .nav-actions.mobile-only {
+    right: 55%;
+  }
+
+
+  /* Optional: hide text in buttons if موجود */
+  .login-btn span,
+  .register-btn span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  html[dir="rtl"] .nav-actions.mobile-only {
+    right: 40%;
+  }
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #374151;
+  transition: 0.3s;
+}
+
+.nav-actions.mobile-only button.icon-btn.dark-mode {
+  color: #008D8D;
+}
+
+.icon-btn:hover {
+  color: #008D8D;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #008D8D;
+  text-decoration: none;
+}
+
+.register-btn {
+  background: #008D8D;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #006f6f;
+}
+
+/* Mobile */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: -100%;
+    flex-direction: column;
+    background: #fff;
+    width: 250px;
+    padding: 30px;
+    height: 100vh;
+    transition: 0.4s;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}

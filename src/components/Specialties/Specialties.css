@@ -1,0 +1,46 @@
+.specialties-section {
+  padding: 70px 8%;
+  background: var(--scaffold-bg);
+}
+
+.specialties-title {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 40px;
+  color: var(--black);
+}
+
+/* card */
+
+.specialty-card {
+  background: var(--card-color);
+  border-radius: 14px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s;
+  border: 1px solid var(--very-light-grey);
+}
+
+.specialty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* icon */
+
+.specialty-card .icon {
+  font-size: 36px;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.specialty-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--black);
+}
+
+.specialty-card p {
+  font-size: 14px;
+  color: var(--grey);
+}

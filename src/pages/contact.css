@@ -1,0 +1,29 @@
+/* src/pages/contact.css */
+
+.contact-page {
+    min-height: 100vh;
+
+    background-image: url("../assets/contactus.jfif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Overlay */
+.contact-overlay {
+    width: 100%;
+    min-height: 100vh;
+
+    background: rgba(0, 0, 0, 0.6);
+    /* شفافية */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 20px;
+}

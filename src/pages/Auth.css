@@ -1,0 +1,157 @@
+/* ================= PAGE WRAPPER ================= */
+
+.auth-wrapper {
+    background: linear-gradient(135deg, #008D8D 0%, #0D2545 100%) !important;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+}
+
+
+/* ================= CARD ================= */
+
+.auth-card {
+    width: 100%;
+    max-width: 700px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================= FORM ================= */
+
+.form-side {
+    width: 100%;
+}
+
+.form-side h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #2c3e50;
+}
+
+
+/* ================= INPUT GROUP ================= */
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+.input-group input,
+.input-group select {
+    width: 87%;
+    padding: 14px 45px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+    background: #f9f9f9;
+}
+
+.input-group select{
+    width: 100% !important;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #2a5298;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.15);
+}
+
+
+/* ================= ICON ================= */
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+
+/* ================= PASSWORD TOGGLE ================= */
+
+.password_toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+}
+
+.password_toggle:hover {
+    color: #2a5298;
+}
+
+
+/* ================= BUTTON ================= */
+
+.primary-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #008D8D 0%, #0D2545 100%) !important;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================= LINKS ================= */
+
+.switch-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.switch-text span {
+    color: #2a5298;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.switch-text span:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px) {
+
+    .auth-card {
+        padding: 35px 25px;
+    }
+
+    .input-group input{
+        width: 70%;
+    }
+
+    .form-side h2 {
+        font-size: 24px;
+    }
+
+}
