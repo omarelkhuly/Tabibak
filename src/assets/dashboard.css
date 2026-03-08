@@ -7,7 +7,6 @@ html {
 }
 
 .dashboard-container {
-    display: flex;
     height: 100vh;
     position: relative;
 }
@@ -72,8 +71,15 @@ html {
     align-items: center;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .user-menu span {
     margin-right: 10px;
+    color: black;
 }
 
 .user-menu button {
@@ -90,7 +96,7 @@ html {
 .toggle-btn-global {
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
     z-index: 1001;
     padding: 5px 10px;
     cursor: pointer;
@@ -100,16 +106,152 @@ html {
     display: none;
 }
 
+/* dashboard.css */
+.dashboard-page h1 {
+    margin-bottom: 15px;
+}
+
+.cards-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+    flex: 1;
+    min-width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.icon-btn {
+    border: none;
+    background: #f1f1f1;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.icon-btn:hover {
+    background: #ddd;
+}
+
+.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+.dark-mode .dashboard-header {
+    background: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+.dark-mode .main-content {
+    background: #181818;
+}
+
+.dark-mode .icon-btn {
+    background: #333;
+    color: white;
+}
+
+.icon-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.icon-btn:hover {
+    background: #eee;
+}
+
+.logout-icon:hover {
+    color: red;
+}
+
+/* toggle button */
+
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: #1e1e2f;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+html[dir="ltr"] .toggle-btn{
+    left: 10px;
+    right: auto;
+}
+
+.toggle-btn.open {
+    right: 250px;
+}
+
+html[dir="ltr"] .toggle-btn.open{
+    left: 250px;
+    right: auto;
+}
+
+/* hover */
+
+.toggle-btn:hover {
+    background: #3a3a5a;
+    transform: scale(1.05);
+}
+
 @media screen and (max-width: 768px) {
     .sidebar {
         position: fixed;
         height: 100%;
         z-index: 1000;
+        right: -250px;
+        width: 0;
+    }
+
+    html[dir="ltr"] .sidebar {
         left: -250px;
+        right: auto;
     }
 
     .sidebar.open {
+        right: 0;
+    }
+
+    html[dir="ltr"] .sidebar.open {
         left: 0;
+        right: auto;
     }
 
     .toggle-btn-global {

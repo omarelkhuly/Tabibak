@@ -9,7 +9,7 @@ const Content = () => {
     <div className="dashboard-pages">
       <Routes>
         <Route index element={<DashboardHome />} />
-        <Route path="DashboardProfile" element={<DashboardProfile />} />
+        <Route path="profile" element={<DashboardProfile />} />
       </Routes>
     </div>
   );

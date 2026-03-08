@@ -83,7 +83,8 @@ body.dark-mode .nav-links.open a:hover {
 
 /* Navbar/Footer Dark Mode */
 body.dark-mode .navbar,
-body.dark-mode .footer {
+body.dark-mode .footer,
+body.dark-mode .sidebar {
   background: linear-gradient(135deg, #008D8D -255%, #0D2545 100%);
 }
 

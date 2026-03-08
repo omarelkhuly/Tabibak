@@ -57,7 +57,7 @@
     background: #f9f9f9;
 }
 
-.input-group select{
+.input-group select {
     width: 100% !important;
 }
 
@@ -74,11 +74,16 @@
 .input-icon {
     position: absolute;
     top: 50%;
-    left: 15px;
+    right: 15px;
     transform: translateY(-50%);
     color: #888;
 }
 
+.password_toggle.fa-eye.password_toggle,
+.password_toggle.fa-eye-slash.password_toggle {
+    left: 15px;
+    right: auto;
+}
 
 /* ================= PASSWORD TOGGLE ================= */
 
@@ -146,7 +151,7 @@
         padding: 35px 25px;
     }
 
-    .input-group input{
+    .input-group input {
         width: 70%;
     }
 

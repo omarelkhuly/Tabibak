@@ -1,36 +1,44 @@
 // src/layout/DashboardLayout.jsx
+
 import React, { useState } from "react";
+import Content from "../components/DashboardComponent/Content";
+
 import Sidebar from "../components/DashboardComponent/Sidebar";
 import Header from "../components/DashboardComponent/Header";
-import Content from "../components/DashboardComponent/Content";
+
 import "../assets/dashboard.css";
 
 const DashboardLayout = () => {
+
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/register";
+    window.location.href = "/login";
   };
 
   return (
     <div className="dashboard-container">
+
       {/* Sidebar */}
-      <Sidebar sidebarOpen={sidebarOpen} />
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      />
 
       {/* Main Content */}
-      <div className="main-content">
+      <div className="dashboard-main">
+
+        {/* Header */}
         <Header handleLogout={handleLogout} />
-        <Content />
+
+        {/* Pages */}
+        <div className="dashboard-content">
+          <Content />
+        </div>
+
       </div>
 
-      {/* Sidebar Toggle Button */}
-      <button
-        className="toggle-btn-global"
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-      >
-        {sidebarOpen ? "«" : "»"}
-      </button>
     </div>
   );
 };
