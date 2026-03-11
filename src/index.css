@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -60,6 +60,10 @@ html[dir="rtl"] .nav-actions {
   margin-right: auto;
 }
 
+html[dir="rtl"] body{
+  font-family: "Cairo", "Tajawal", sans-serif !important;
+}
+
 body.dark-mode {
   /* Soft gradient background مشابه للصورة */
   background: linear-gradient(135deg, #008D8D 0%, #0D2545 100%) !important;
@@ -91,7 +95,13 @@ body.dark-mode .sidebar {
 body.dark-mode .navbar button.icon-btn,
 body.dark-mode .navbar .nav-actions svg,
 body.dark-mode .text_light_mode,
-body.dark-mode .menu-icon.sweezy-custom-cursor-hover {
+body.dark-mode .menu-icon.sweezy-custom-cursor-hover,
+body.dark-mode .about-content h2,
+body.dark-mode .about-content p,
+body.dark-mode .specialties-title,
+body.dark-mode .features-title,
+body.dark-mode .registration-header h1,
+body.dark-mode .registration-header p {
   color: #F5F5F5;
 }
 

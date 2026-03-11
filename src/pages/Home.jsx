@@ -1,36 +1,57 @@
+// src/pages/Home.jsx
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+
 import "./Home.css";
+
 import About from "../components/About/about.jsx";
 import Specialties from "../components/Specialties/Specialties";
 import ContactUs from "../components/ContactUs/ContactUs";
 import Features from "../components/Features/Features";
-import DoctorImg from "../assets/hero-bg.png"; // الصورة كخلفية
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+
   return (
     <>
-    // HERO SECTION
+      {/* HERO */}
       <section className="hero-section">
+
         <div className="hero-overlay"></div>
+
         <div className="hero-content">
-          <h1>WE PROVIDE BEST HEALTHCARE</h1>
+
+          <h1>
+            {t("home.heroTitle")}
+          </h1>
+
           <p>
-            Explicabo esse amet tempora quibusdam laudantium, laborum eaque
-            magnam fugiat hic? Esse dicta aliquid error repudiandae earum
-            suscipit fugiat molestias, veniam, vel architecto veritatis delectus
-            repellat modi impedit sequi.
+            {t("home.heroDesc")}
           </p>
-          <button className="read-more-btn">Read More</button>
+
+          <button className="read-more-btn"
+            onClick={() => navigate("/registration-guide")}>
+            {t("common.getStarted")}
+          </button>
+
         </div>
+
       </section>
+
       <About />
+
       <Specialties />
+
       <div className="contact-page">
         <div className="contact-overlay">
           <ContactUs />
         </div>
       </div>
+
       <Features />
+
     </>
   );
 };

@@ -55,6 +55,7 @@
     font-size: 14px;
     transition: 0.3s;
     background: #f9f9f9;
+    color: var(--light-black) !important;
 }
 
 .input-group select {

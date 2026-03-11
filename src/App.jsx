@@ -3,8 +3,11 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./layout/layout";
 import DashboardLayout from './layout/DashboardLayout';
 
-import Dashboard from "./pages/Dashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardHome from "./pages/dashboard/DashboardHome";
+import DashboardProfile from "./pages/dashboard/DashboardProfile";
+import Facilities from "./pages/dashboard/Facilities";
+import CreateFacility from "./pages/dashboard/CreateFacility";
+import ProtectedRoute from "./components/DashboardComponent/ProtectedRoute";
 
 // Pages
 import Home from "./pages/Home";
@@ -16,6 +19,7 @@ import Contact from "./pages/Contact";
 import Auth from './pages/Auth';
 import ServiceDetails from "./components/Details/ServiceDetails";
 import BlogDetails from "./components/Details/BlogDetails";
+import RegistrationGuide from "./components/RegistrationGuide/RegistrationGuide";
 
 
 function App() {
@@ -33,24 +37,26 @@ function App() {
         <Route path="/blogs/:id" element={<BlogDetails />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/registration-guide" element={<RegistrationGuide />} />
       </Route>
 
       {/* Auth Pages بدون Footer/Navbar لو حبيت */}
       <Route path="/Register" element={<Auth />} />
       <Route path="/Login" element={<Auth />} />
 
+      {/* Dashboard Wrapper */}
+      <Route path="/dashboard/*" element={
+        <ProtectedRoute>
+        <DashboardLayout />
+        </ProtectedRoute>
+        }>
+        <Route index element={<DashboardHome />} />
+        <Route path="profile" element={<DashboardProfile />} />
+        <Route path="facilities" element={<Facilities />} />
+        <Route path="facilities/create" element={<CreateFacility />} />
+      </Route>
+
       <Route path="*" element={<Auth />} />
-
-      <Route
-        path="/dashboard/*"
-        element={
-          <ProtectedRoute>
-            <DashboardLayout />
-          </ProtectedRoute>
-        }
-      />
-
-
     </Routes>
   );
 }

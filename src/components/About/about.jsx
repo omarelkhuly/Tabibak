@@ -1,8 +1,12 @@
 // src/components/About/about.jsx
 import "./about.css";
 import aboutImg from "../../assets/About.jpg";
+import { useTranslation } from "react-i18next";
 
 function AboutUs() {
+
+  const { t } = useTranslation();
+
   return (
     <section className="about-section">
 
@@ -14,26 +18,24 @@ function AboutUs() {
 
         <div className="about-content">
 
-          <span className="about-label">Medical Platform</span>
+          <span className="about-label">
+            {t("about.platform")}
+          </span>
 
           <h2>
-            Smart Management System
-            for Clinics & Medical Centers
+            {t("about.title")}
           </h2>
 
           <p>
-            Our platform helps clinics manage patients, appointments,
-            medical records and staff operations through a modern
-            and easy-to-use dashboard.
+            {t("about.desc1")}
           </p>
 
           <p>
-            Built to improve healthcare workflow, reduce manual work,
-            and provide doctors with better tools to deliver quality care.
+            {t("about.desc2")}
           </p>
 
           <button className="about-btn">
-            Learn More
+            {t("common.learnMore")}
           </button>
 
         </div>

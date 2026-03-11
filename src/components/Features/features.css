@@ -69,3 +69,8 @@
     color: var(--grey);
     line-height: 1.6;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+    display: none;
+}

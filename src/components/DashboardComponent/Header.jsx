@@ -1,25 +1,25 @@
 // src/components/DashboardComponent/Header.jsx
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Header = ({ handleLogout }) => {
-
-  const [lang, setLang] = useState("AR");
+  const { i18n } = useTranslation();
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    document.documentElement.dir = "rtl";
-  }, []);
+    // ضبط الاتجاه حسب اللغة عند التحميل
+    document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
+  }, [i18n.language]);
 
   // تغيير اللغة
   const toggleLanguage = () => {
-    const newLang = lang === "AR" ? "EN" : "AR";
-
-    setLang(newLang);
-    document.documentElement.dir = newLang === "AR" ? "rtl" : "ltr";
+    const newLang = i18n.language === "en" ? "ar" : "en";
+    i18n.changeLanguage(newLang);
+    document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
   };
 
-  // تغيير الإضاءة
+  // تغيير الوضع الليلي
   const toggleDarkMode = () => {
     document.body.classList.toggle("dark-mode");
     setDarkMode(!darkMode);
@@ -27,10 +27,9 @@ const Header = ({ handleLogout }) => {
 
   return (
     <header className="dashboard-header">
-
       <div className="header-right">
 
-        {/* Language */}
+        {/* Language Toggle */}
         <button className="icon-btn" onClick={toggleLanguage} title="Language">
           🌐
         </button>
@@ -46,7 +45,6 @@ const Header = ({ handleLogout }) => {
         </button>
 
       </div>
-
     </header>
   );
 };

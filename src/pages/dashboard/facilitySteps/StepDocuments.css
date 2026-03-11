@@ -1,0 +1,33 @@
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.document-card {
+    background: #1e1e2f;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    border: 1px solid #2e2e4a;
+}
+
+.document-card input {
+    margin-top: 10px;
+}
+
+.doc-preview {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.doc-preview button {
+    margin-top: 8px;
+    padding: 6px 12px;
+    border: none;
+    background: #6c63ff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}

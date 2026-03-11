@@ -1,6 +1,6 @@
 .about-section {
   padding: 80px 8%;
-  background: var(--scaffold-bg);
+  /* background: var(--scaffold-bg); */
 }
 
 .about-container {
@@ -80,6 +80,10 @@
 
   .about-content h2 {
     font-size: 30px;
+  }
+
+  .about-section{
+    padding: 50px 0;
   }
 
 }

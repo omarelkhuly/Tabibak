@@ -1,0 +1,78 @@
+/* src/pages/dashboard/facilitySteps/StepBasic.css */
+
+.step-basic {
+    background: #2a2a3d;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #3a3a50;
+}
+
+/* grid */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* inputs */
+
+.step-basic input,
+.step-basic textarea,
+.step-basic select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #44445f;
+    background: #1e1e2f;
+    color: white;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* focus */
+
+.step-basic input:focus,
+.step-basic textarea:focus,
+.step-basic select:focus {
+    outline: none;
+    border-color: #6c63ff;
+}
+
+/* textarea */
+
+.step-basic textarea {
+    min-height: 100px;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+/* uploads */
+
+.image-uploads {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.image-uploads label {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    color: #ccc;
+}
+
+.image-uploads input {
+    margin-top: 6px;
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

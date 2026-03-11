@@ -2,8 +2,11 @@
 import { useState } from "react";
 import "./ContactUs.css";
 import { contactUsApi } from "../../api/contact";
+import { useTranslation } from "react-i18next";
 
 function ContactUs() {
+
+    const { t } = useTranslation();
 
     const [form, setForm] = useState({
         name: "",
@@ -29,7 +32,7 @@ function ContactUs() {
 
             await contactUsApi(form);
 
-            setSuccess("Message sent successfully");
+            setSuccess(t("contact.success"));
 
             setForm({
                 name: "",
@@ -50,13 +53,9 @@ function ContactUs() {
             <div className="contact-container">
 
                 <div className="contact-info">
-                    <h2>Contact Us</h2>
+                    <h2>{t("contact.title")}</h2>
 
-                    <p>
-                        If you have any questions about the medical platform
-                        or need help managing your clinic dashboard,
-                        send us a message.
-                    </p>
+                    <p>{t("contact.desc")}</p>
                 </div>
 
                 <form className="contact-form" onSubmit={handleSubmit}>
@@ -64,7 +63,7 @@ function ContactUs() {
                     <input
                         type="text"
                         name="name"
-                        placeholder="Your Name"
+                        placeholder={t("common.name")}
                         value={form.name}
                         onChange={handleChange}
                         required
@@ -73,7 +72,7 @@ function ContactUs() {
                     <input
                         type="email"
                         name="email"
-                        placeholder="Your Email"
+                        placeholder={t("common.email")}
                         value={form.email}
                         onChange={handleChange}
                         required
@@ -81,7 +80,7 @@ function ContactUs() {
 
                     <textarea
                         name="message"
-                        placeholder="Write your message..."
+                        placeholder={t("common.message")}
                         rows="5"
                         value={form.message}
                         onChange={handleChange}
@@ -89,7 +88,7 @@ function ContactUs() {
                     />
 
                     <button type="submit" disabled={loading}>
-                        {loading ? "Sending..." : "Send Message"}
+                        {loading ? t("common.sending") : t("common.send")}
                     </button>
 
                     {success && <p className="success">{success}</p>}

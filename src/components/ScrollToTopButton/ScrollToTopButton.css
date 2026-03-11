@@ -1,7 +1,8 @@
 .scroll-top {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
+  right: auto;
   background: #C8A96E;
   border: none;
   padding: 12px 15px;
@@ -12,6 +13,11 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: 0.3s;
   z-index: 999;
+}
+
+html[dir="ltr"] .scroll-top{
+  right: 30px;
+  left: auto;
 }
 
 .scroll-top:hover {

@@ -1,0 +1,13 @@
+.step-review {
+    padding: 15px;
+    background: #1e1e2f;
+    border-radius: 5px;
+}
+
+.review-item {
+    margin-bottom: 10px;
+}
+
+.review-item ul {
+    padding-left: 20px;
+}

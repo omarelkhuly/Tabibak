@@ -2,7 +2,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../../assets/logo.png"; // تأكد من مسار اللوجو
+import { useTranslation } from "react-i18next";
+
+import logo from "../../assets/logo.png";
+
 import {
   faHospital,
   faUserDoctor,
@@ -12,6 +15,7 @@ import {
   faPhone,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
+
 import {
   faFacebookF,
   faTwitter,
@@ -22,6 +26,9 @@ import {
 import "./Footer.css";
 
 const Footer = () => {
+
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -29,10 +36,8 @@ const Footer = () => {
         {/* Column 1 - About */}
         <div className="footer-col">
           <img className="imgLogo" src={logo} alt="Tabibak Logo" />
-          <p>
-            منصة متكاملة لإدارة العيادات والمستشفيات والمجمعات الطبية
-            بسهولة واحترافية.
-          </p>
+
+          <p>{t("footer.aboutText")}</p>
 
           <div className="social-icons">
             <FontAwesomeIcon icon={faFacebookF} />
@@ -42,34 +47,41 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Column 2 - Dashboard Services */}
+        {/* Column 2 */}
         <div className="footer-col">
-          <h4>خدمات لوحة التحكم</h4>
+          <h4>{t("footer.dashboardServices")}</h4>
+
           <ul>
-            <li><FontAwesomeIcon icon={faHospital} /> إدارة المنشآت</li>
-            <li><FontAwesomeIcon icon={faUserDoctor} /> إدارة الأطباء</li>
-            <li><FontAwesomeIcon icon={faCalendarCheck} /> تنظيم المواعيد</li>
-            <li><FontAwesomeIcon icon={faFileShield} /> رفع المستندات</li>
+            <li><FontAwesomeIcon icon={faHospital} /> {t("footer.facilities")}</li>
+            <li><FontAwesomeIcon icon={faUserDoctor} /> {t("footer.doctors")}</li>
+            <li><FontAwesomeIcon icon={faCalendarCheck} /> {t("footer.appointments")}</li>
+            <li><FontAwesomeIcon icon={faFileShield} /> {t("footer.documents")}</li>
           </ul>
         </div>
 
-        {/* Column 3 - Quick Links */}
+        {/* Column 3 */}
         <div className="footer-col">
-          <h4>روابط سريعة</h4>
+          <h4>{t("footer.quickLinks")}</h4>
+
           <ul>
-            <li><Link to="/">الرئيسية</Link></li>
-            <li><Link to="/about">من نحن</Link></li>
-            <li><Link to="/services">الخدمات</Link></li>
-            <li><Link to="/contact">تواصل معنا</Link></li>
+            <li><Link to="/">{t("nav.home")}</Link></li>
+            <li><Link to="/about">{t("nav.about")}</Link></li>
+            <li><Link to="/services">{t("nav.services")}</Link></li>
+            <li><Link to="/contact">{t("nav.contact")}</Link></li>
           </ul>
         </div>
 
-        {/* Column 4 - Newsletter */}
+        {/* Column 4 */}
         <div className="footer-col">
-          <h4>اشترك في النشرة البريدية</h4>
+          <h4>{t("footer.newsletterTitle")}</h4>
+
           <div className="newsletter">
-            <input type="email" placeholder="ادخل بريدك الإلكتروني" />
-            <button>اشتراك</button>
+            <input
+              type="email"
+              placeholder={t("footer.emailPlaceholder")}
+            />
+
+            <button>{t("footer.subscribe")}</button>
           </div>
 
           <div className="contact-info">
@@ -82,7 +94,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        © {new Date().getFullYear()} MedPlatform. All rights reserved.
+        © {new Date().getFullYear()} MedPlatform. {t("footer.rights")}
       </div>
     </footer>
   );

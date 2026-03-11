@@ -1,4 +1,4 @@
-// src/api/auth.js
+// src/api/authApi.js
 import api from "./axios";
 
 /* ================= REGISTER ================= */

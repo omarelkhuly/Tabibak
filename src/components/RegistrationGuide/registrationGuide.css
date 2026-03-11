@@ -1,0 +1,84 @@
+.registration-page {
+    padding: 80px 20px;
+    min-height: 100vh;
+}
+
+.registration-header {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+.registration-header h1 {
+    font-size: 36px;
+    color: #1A1C1E;
+    margin-bottom: 15px;
+}
+
+.registration-header p {
+    color: #6B7280;
+    font-size: 18px;
+}
+
+.steps-container {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.step-card {
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    border-top: 4px solid #008D8D;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: #C8A96E;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.step-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1A1C1E;
+}
+
+.step-card p {
+    color: #6B7280;
+    line-height: 1.6;
+}
+
+.registration-cta {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.start-btn {
+    background: #008D8D;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    background: #007777;
+}

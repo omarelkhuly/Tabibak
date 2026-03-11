@@ -46,7 +46,8 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
+  width: 75%;
 }
 
 .nav-links a {
@@ -153,6 +154,10 @@
 }
 
 @media (max-width: 992px) {
+  .container {
+    width: 97%;
+  }
+
   .nav-links {
     position: absolute;
     top: 80px;

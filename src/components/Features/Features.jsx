@@ -7,44 +7,52 @@ import { Navigation, Pagination } from "swiper/modules";
 
 import "./features.css";
 
+import { useTranslation } from "react-i18next";
+
 import { FaUserShield, FaClock, FaStar, FaShieldAlt, FaHeart } from "react-icons/fa";
 
-const featuresData = [
-  {
-    icon: <FaUserShield />,
-    title: "أمان البيانات",
-    desc: "نظام حماية متكامل لحفظ بيانات المرضى والمنشآت بشكل آمن."
-  },
-  {
-    icon: <FaClock />,
-    title: "تنظيم الوقت",
-    desc: "إدارة مواعيد الأطباء والحجوزات بشكل دقيق ومرن."
-  },
-  {
-    icon: <FaStar />,
-    title: "جودة الخدمة",
-    desc: "متابعة الأداء وضمان تقديم خدمات طبية عالية الجودة."
-  },
-  {
-    icon: <FaShieldAlt />,
-    title: "تحقق من الأوراق",
-    desc: "مراجعة مستندات المنشآت والعيادات بدقة لضمان المطابقة."
-  },
-  {
-    icon: <FaHeart />,
-    title: "رعاية المرضى",
-    desc: "نظام متكامل لدعم المرضى وتحسين تجربة الحجز والعناية."
-  }
-];
-
 const Features = ({ overlay = false }) => {
+
+  const { t } = useTranslation();
+
+  const featuresData = [
+    {
+      icon: <FaUserShield />,
+      title: t("features.securityTitle"),
+      desc: t("features.securityDesc")
+    },
+    {
+      icon: <FaClock />,
+      title: t("features.timeTitle"),
+      desc: t("features.timeDesc")
+    },
+    {
+      icon: <FaStar />,
+      title: t("features.qualityTitle"),
+      desc: t("features.qualityDesc")
+    },
+    {
+      icon: <FaShieldAlt />,
+      title: t("features.verifyTitle"),
+      desc: t("features.verifyDesc")
+    },
+    {
+      icon: <FaHeart />,
+      title: t("features.careTitle"),
+      desc: t("features.careDesc")
+    }
+  ];
+
   const isRTL = document.documentElement.dir === "rtl";
 
   return (
     <section className={`features-section ${overlay ? "with-overlay" : ""}`}>
+
       {overlay && <div className="features-overlay"></div>}
 
-      <h2 className="features-title">مميزاتنا</h2>
+      <h2 className="features-title">
+        {t("features.title")}
+      </h2>
 
       <Swiper
         modules={[Navigation, Pagination]}
@@ -60,16 +68,25 @@ const Features = ({ overlay = false }) => {
         }}
         dir={isRTL ? "rtl" : "ltr"}
       >
+
         {featuresData.map((feature, index) => (
           <SwiperSlide key={index}>
             <div className="feature-card">
-              <div className="feature-icon">{feature.icon}</div>
+
+              <div className="feature-icon">
+                {feature.icon}
+              </div>
+
               <h3>{feature.title}</h3>
+
               <p>{feature.desc}</p>
+
             </div>
           </SwiperSlide>
         ))}
+
       </Swiper>
+
     </section>
   );
 };

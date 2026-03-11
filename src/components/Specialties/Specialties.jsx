@@ -1,4 +1,5 @@
 import "./Specialties.css";
+import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -16,66 +17,30 @@ import {
     FaUserMd
 } from "react-icons/fa";
 
-const specialties = [
-    {
-        icon: <FaHeartbeat />,
-        title: "طب القلب",
-        desc: "تشخيص وعلاج أمراض القلب والشرايين."
-    },
-    {
-        icon: <FaBaby />,
-        title: "طب الأطفال",
-        desc: "رعاية صحة الأطفال منذ الولادة."
-    },
-    {
-        icon: <FaEye />,
-        title: "طب العيون",
-        desc: "تشخيص وعلاج مشاكل النظر وأمراض العين."
-    },
-    {
-        icon: <FaBrain />,
-        title: "طب الأعصاب",
-        desc: "علاج أمراض الجهاز العصبي والدماغ."
-    },
-    {
-        icon: <FaBone />,
-        title: "طب العظام",
-        desc: "تشخيص وعلاج الكسور ومشاكل المفاصل."
-    },
-    {
-        icon: <FaTooth />,
-        title: "طب الأسنان",
-        desc: "العناية بصحة الفم والأسنان."
-    },
-    {
-        icon: <FaMicroscope />,
-        title: "المختبرات الطبية",
-        desc: "إجراء التحاليل الطبية المختلفة."
-    },
-    {
-        icon: <FaXRay />,
-        title: "الأشعة التشخيصية",
-        desc: "تشخيص الأمراض باستخدام الأشعة."
-    },
-    {
-        icon: <FaProcedures />,
-        title: "العناية المركزة",
-        desc: "رعاية المرضى في الحالات الحرجة."
-    },
-    {
-        icon: <FaUserMd />,
-        title: "الطب الباطني",
-        desc: "تشخيص الأمراض الداخلية وعلاجها."
-    }
-];
-
 function Specialties() {
+
+    const { t } = useTranslation();
+
+    const specialties = [
+        { icon: <FaHeartbeat />, title: t("specialties.cardioTitle"), desc: t("specialties.cardioDesc") },
+        { icon: <FaBaby />, title: t("specialties.pediatricsTitle"), desc: t("specialties.pediatricsDesc") },
+        { icon: <FaEye />, title: t("specialties.eyeTitle"), desc: t("specialties.eyeDesc") },
+        { icon: <FaBrain />, title: t("specialties.neuroTitle"), desc: t("specialties.neuroDesc") },
+        { icon: <FaBone />, title: t("specialties.orthoTitle"), desc: t("specialties.orthoDesc") },
+        { icon: <FaTooth />, title: t("specialties.dentalTitle"), desc: t("specialties.dentalDesc") },
+        { icon: <FaMicroscope />, title: t("specialties.labTitle"), desc: t("specialties.labDesc") },
+        { icon: <FaXRay />, title: t("specialties.radiologyTitle"), desc: t("specialties.radiologyDesc") },
+        { icon: <FaProcedures />, title: t("specialties.icuTitle"), desc: t("specialties.icuDesc") },
+        { icon: <FaUserMd />, title: t("specialties.internalTitle"), desc: t("specialties.internalDesc") }
+    ];
+
     const isRTL = document.documentElement.dir === "rtl";
+
     return (
         <section className="specialties-section">
 
             <h2 className="specialties-title">
-                التخصصات الطبية
+                {t("specialties.title")}
             </h2>
 
             <Swiper
@@ -89,8 +54,10 @@ function Specialties() {
                     1400: { slidesPerView: 5 }
                 }}
             >
+
                 {specialties.map((item, index) => (
                     <SwiperSlide key={index}>
+
                         <div className="specialty-card">
 
                             <div className="icon">
@@ -102,12 +69,14 @@ function Specialties() {
                             <p>{item.desc}</p>
 
                         </div>
+
                     </SwiperSlide>
                 ))}
+
             </Swiper>
 
         </section>
     );
 }
 
-export default Specialties; 
+export default Specialties;
