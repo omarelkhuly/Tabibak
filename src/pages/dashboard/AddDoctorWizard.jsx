@@ -5,11 +5,12 @@ import StepDocuments from "./doctorSteps/StepDocumentsDoctor";
 import StepReview from "./doctorSteps/StepReviewDoctor";
 import { useTranslation } from "react-i18next";
 import { useNotification } from "../../context/NotificationContext";
+import './DoctorWizard.css';
 
 const steps = [
-    { component: StepBasic, titleKey: "doctor.add.steps.basic" },
-    { component: StepDocuments, titleKey: "doctor.add.steps.documents" },
-    { component: StepReview, titleKey: "doctor.add.steps.review" },
+    { component: StepBasic, titleKey: "doctor.steps.basic" },
+    { component: StepDocuments, titleKey: "doctor.steps.documents" },
+    { component: StepReview, titleKey: "doctor.steps.review" },
 ];
 
 const AddDoctorWizard = () => {
@@ -26,13 +27,13 @@ const AddDoctorWizard = () => {
 
     return (
         <div className="add-doctor-wizard">
-            <h2>{t(steps[currentStep].titleKey)}</h2>
+            <h2 className="address_step">{t(steps[currentStep].titleKey)}</h2>
 
             <StepComponent data={doctorData} setData={setDoctorData} />
 
             <div className="wizard-buttons">
-                {currentStep > 0 && <button onClick={prevStep}>{t("dashboard.steps.Back")}</button>}
-                {currentStep < steps.length - 1 && <button onClick={nextStep}>{t("dashboard.steps.Next")}</button>}
+                {currentStep > 0 && <button className="buttonstps" onClick={prevStep}>{t("dashboard.steps.Back")}</button>}
+                {currentStep < steps.length - 1 && <button className="buttonstps" onClick={nextStep}>{t("dashboard.steps.Next")}</button>}
             </div>
         </div>
     );

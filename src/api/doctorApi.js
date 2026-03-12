@@ -11,7 +11,7 @@ const headers = () => ({
 export const getDoctorsApi = async (page = 1) => {
     try {
 
-        const res = await api.get(`/provider/v1/doctors?page=${page}`, {
+        const res = await api.get(`provider/v1/doctors?page=${page}`, {
             headers: headers()
         });
 
@@ -31,7 +31,7 @@ export const getDoctorsApi = async (page = 1) => {
 /* ================= GET DOCTOR ================= */
 
 export const getDoctorApi = async (id) => {
-    const res = await api.get(`/provider/v1/doctors/${id}`, {
+    const res = await api.get(`provider/v1/doctors/${id}`, {
         headers: headers()
     });
 
@@ -41,7 +41,7 @@ export const getDoctorApi = async (id) => {
 /* ================= CREATE DOCTOR ================= */
 
 export const createDoctorApi = async (data) => {
-    const res = await api.post("/provider/v1/doctors", data, {
+    const res = await api.post("provider/v1/doctors", data, {
         headers: headers()
     });
 
@@ -51,7 +51,7 @@ export const createDoctorApi = async (data) => {
 /* ================= UPDATE DOCTOR ================= */
 
 export const updateDoctorApi = async (id, data) => {
-    const res = await api.put(`/provider/v1/doctors/${id}`, data, {
+    const res = await api.put(`provider/v1/doctors/${id}`, data, {
         headers: headers()
     });
 
@@ -61,7 +61,7 @@ export const updateDoctorApi = async (id, data) => {
 /* ================= DELETE DOCTOR ================= */
 
 export const deleteDoctorApi = async (id) => {
-    const res = await api.delete(`/provider/v1/doctors/${id}`, {
+    const res = await api.delete(`provider/v1/doctors/${id}`, {
         headers: headers()
     });
 

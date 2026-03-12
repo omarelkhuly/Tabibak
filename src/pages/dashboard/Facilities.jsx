@@ -50,32 +50,33 @@ const Facilities = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
+                <div className="table-scroll">
+                    <table className="facilities-table">
 
-                <table className="facilities-table">
-
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>{t("facility.name")}</th>
-                            <th>{t("facility.email")}</th>
-                            <th>{t("facility.phone")}</th>
-                            <th>{t("facility.status")}</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {facilities.map((f) => (
-                            <tr key={f.id}>
-                                <td>{f.id}</td>
-                                <td>{f.name}</td>
-                                <td>{f.email}</td>
-                                <td>{f.phone}</td>
-                                <td>{f.status}</td>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>{t("facility.name")}</th>
+                                <th>{t("facility.email")}</th>
+                                <th>{t("facility.phone")}</th>
+                                <th>{t("facility.status")}</th>
                             </tr>
-                        ))}
-                    </tbody>
+                        </thead>
 
-                </table>
+                        <tbody>
+                            {facilities.map((f) => (
+                                <tr key={f.id}>
+                                    <td>{f.id}</td>
+                                    <td>{f.name}</td>
+                                    <td>{f.email}</td>
+                                    <td>{f.phone}</td>
+                                    <td>{f.status}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+
+                    </table>
+                </div>
             )}
 
         </div>

@@ -37,3 +37,22 @@ html[dir="ltr"] .doctors-table td {
 .doctors-table th {
     background-color: #1e1e2feb;
 }
+
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.doctors-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+    /* مهم جداً للـ scroll */
+}
+
+.doctors-table th,
+.doctors-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}

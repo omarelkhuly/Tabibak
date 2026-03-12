@@ -1,8 +1,9 @@
 // src/pages/dashboard/doctorSteps/StepBasicDoctor.jsx
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import "./DoctorSteps.css";
 
-const StepBasic = ({ data, setData }) => {
+const StepBasicDoctor = ({ data, setData }) => {
     const { t } = useTranslation();
 
     const [form, setForm] = useState({
@@ -13,22 +14,54 @@ const StepBasic = ({ data, setData }) => {
     });
 
     useEffect(() => {
-        setData(prev => ({ ...prev, ...form }));
-    }, [form]);
+        setData((prev) => ({ ...prev, ...form }));
+    }, [form, setData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setForm(prev => ({ ...prev, [name]: value }));
+        setForm((prev) => ({
+            ...prev,
+            [name]: value
+        }));
     };
 
     return (
-        <div className="step-basic-doctor">
-            <input name="name" placeholder={t("doctor.add.name")} value={form.name} onChange={handleChange} />
-            <input name="email" placeholder={t("doctor.add.email")} value={form.email} onChange={handleChange} />
-            <input name="phone" placeholder={t("doctor.add.phone")} value={form.phone} onChange={handleChange} />
-            <input name="specialty" placeholder={t("doctor.add.specialty")} value={form.specialty} onChange={handleChange} />
+        <div className="doctor-step">
+
+            <div className="doctor-form-grid">
+
+                <input
+                    name="name"
+                    placeholder={t("doctor.add.name")}
+                    value={form.name}
+                    onChange={handleChange}
+                />
+
+                <input
+                    name="email"
+                    placeholder={t("doctor.add.email")}
+                    value={form.email}
+                    onChange={handleChange}
+                />
+
+                <input
+                    name="phone"
+                    placeholder={t("doctor.add.phone")}
+                    value={form.phone}
+                    onChange={handleChange}
+                />
+
+                <input
+                    name="specialty"
+                    placeholder={t("doctor.add.specialty")}
+                    value={form.specialty}
+                    onChange={handleChange}
+                />
+
+            </div>
+
         </div>
     );
 };
 
-export default StepBasic;
+export default StepBasicDoctor;

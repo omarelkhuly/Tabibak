@@ -67,6 +67,7 @@ const Doctors = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : (
+                <div className="table-scroll">
                 <table className="doctors-table">
                     <thead>
                         <tr>
@@ -98,6 +99,7 @@ const Doctors = () => {
                         ))}
                     </tbody>
                 </table>
+                </div>
             )}
         </div>
     );

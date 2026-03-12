@@ -41,3 +41,22 @@ html[dir="ltr"] .facilities-table td {
 .facilities-table th {
     background-color: #1e1e2feb;
 }
+
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* مهم جداً للـ scroll */
+.facilities-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+.facilities-table th,
+.facilities-table td {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}

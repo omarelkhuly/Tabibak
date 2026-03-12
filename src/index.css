@@ -103,7 +103,8 @@ body.dark-mode .features-title,
 body.dark-mode .registration-header h1,
 body.dark-mode .registration-header p,
 body.dark-mode .address_step,
-body.dark-mode .dp-title {
+body.dark-mode .dp-title,
+body.dark-mode span.doc-title {
   color: #F5F5F5;
 }
 
