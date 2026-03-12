@@ -3,7 +3,8 @@ import api from "./axios";
 
 /* ================= REGISTER ================= */
 export const registerApi = (data) => {
-  return api.post("/register", data, {
+  // Backend expects provider registration under /provider/v1/register
+  return api.post("provider/v1/register", data, {
     headers: {
       "Content-Type": "multipart/form-data",
       "Accept-Language": "en",
@@ -23,7 +24,8 @@ export const loginApi = (data) => {
 
 /* ================= GET PROFILE ================= */
 export const getProfileApi = () => {
-  return api.get("/profile", {
+  // Backend profile endpoint is under provider/v1
+  return api.get("provider/v1/profile", {
     headers: {
       "Accept-Language": "en",
     },
@@ -32,7 +34,8 @@ export const getProfileApi = () => {
 
 /* ================= UPDATE PROFILE ================= */
 export const updateProfileApi = (data) => {
-  return api.post("/profile", data, {
+  // Same endpoint used for updating profile data
+  return api.post("provider/v1/profile", data, {
     headers: {
       "Content-Type": "multipart/form-data",
       "Accept-Language": "en",
