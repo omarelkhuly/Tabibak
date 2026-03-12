@@ -30,9 +30,14 @@
 .facilities-table td {
     border: 1px solid #ccc;
     padding: 8px;
+    text-align: right;
+}
+
+html[dir="ltr"] .facilities-table th,
+html[dir="ltr"] .facilities-table td {
     text-align: left;
 }
 
 .facilities-table th {
-    background-color: #f0f0f0;
+    background-color: #1e1e2feb;
 }

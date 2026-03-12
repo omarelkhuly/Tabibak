@@ -5,7 +5,9 @@ import { Routes, Route } from "react-router-dom";
 import DashboardHome from "@/pages/dashboard/DashboardHome";
 import DashboardProfile from "@/pages/dashboard/DashboardProfile";
 import Facilities from "@/pages/dashboard/Facilities";
+import Doctors from "@/pages/dashboard/Doctors";
 import CreateFacility from "@/pages/dashboard/CreateFacility";
+import AddDoctorWizard from "@/pages/dashboard/AddDoctorWizard";
 
 const Content = () => {
   return (
@@ -14,6 +16,8 @@ const Content = () => {
       <Route path="profile" element={<DashboardProfile />} />
       <Route path="facilities" element={<Facilities />} />
       <Route path="facilities/create" element={<CreateFacility />} />
+      <Route path="doctors" element={<Doctors />} />
+      <Route path="doctors/add" element={<AddDoctorWizard />} />
     </Routes>
   );
 };

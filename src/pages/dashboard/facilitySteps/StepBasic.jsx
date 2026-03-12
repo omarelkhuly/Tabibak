@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import  {useNotification}   from "../../../context/NotificationContext";
+import { useNotification } from "../../../context/NotificationContext";
 import "./StepBasic.css";
 
 const StepBasic = ({ data, setData }) => {
 
     const { t } = useTranslation();
-    const { showNotification } = useNotification ();
+    const { showNotification } = useNotification();
 
     const [form, setForm] = useState({
         name_ar: data.name_ar || "",
@@ -113,14 +113,55 @@ const StepBasic = ({ data, setData }) => {
 
             <div className="image-uploads">
 
-                <label>
-                    {t("dashboard.stepBasic.logo")}
-                    <input type="file" name="logo" onChange={handleFile} />
+                {/* Logo Upload */}
+                <label className="file-upload">
+
+                    <span className="file-label">
+                        {t("dashboard.stepBasic.logo")}
+                    </span>
+
+                    <input
+                        type="file"
+                        name="logo"
+                        onChange={handleFile}
+                    />
+
+                    <span className="upload-btn">
+                        {t("common.ChooseFile")}
+                    </span>
+
+                    {form.logo && (
+                        <span className="file-name">
+                            {form.logo.name}
+                        </span>
+                    )}
+
                 </label>
 
-                <label>
-                    {t("dashboard.stepBasic.cover")}
-                    <input type="file" name="cover" onChange={handleFile} />
+
+                {/* Cover Upload */}
+                <label className="file-upload">
+
+                    <span className="file-label">
+                        {t("dashboard.stepBasic.cover")}
+                    </span>
+
+                    <input
+                        type="file"
+                        name="cover"
+                        onChange={handleFile}
+                    />
+
+                    <span className="upload-btn">
+                        {t("common.ChooseFile")}
+                    </span>
+
+                    {form.cover && (
+                        <span className="file-name">
+                            {form.cover.name}
+                        </span>
+                    )}
+
                 </label>
 
             </div>

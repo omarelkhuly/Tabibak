@@ -1,8 +1,8 @@
 // src/components/DashboardComponent/Sidebar.jsx
-// src/components/DashboardComponent/Sidebar.jsx
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import LOGO from "../../assets/logo.png";
 import "../../assets/dashboard.css";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
@@ -38,6 +38,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       label: t("sidebar.facilities"),
       icon: "🏥",
     },
+    // Doctors
+    {
+      path: "/dashboard/doctors",
+      label: t("sidebar.doctors"),
+      icon: "🩺",
+    },
   ];
 
   return (
@@ -52,9 +58,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
       <aside className={sidebarOpen ? "sidebar open" : "sidebar"}>
         <div className="sidebar-header">
-          <h2 className="logo">
-            {sidebarOpen ? t("sidebar.dashboard") : "DB"}
-          </h2>
+          {sidebarOpen && (
+            <img className="logo" src={LOGO} alt="logo" />
+          )}
         </div>
 
         <nav className="sidebar-nav">

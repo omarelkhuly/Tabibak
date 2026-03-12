@@ -33,6 +33,8 @@ const resources = {
                 rights: "All rights reserved."
             },
             common: {
+                save: "Save",
+                ChooseFile: "Choose File",
                 learnMore: "Learn More",
                 getStarted: "Start Your Registration",
                 send: "Send Message",
@@ -167,6 +169,7 @@ const resources = {
                 home: "Home",
                 profile: "Profile",
                 facilities: "Facilities",
+                doctors: "doctors",
             },
 
             dashboard: {
@@ -226,21 +229,6 @@ const resources = {
                     "saved": "Step saved successfully!",
                     "fillRequired": "Please fill in the required fields"
                 },
-                "stepDocuments": {
-                    "commercial_register": "Commercial Register",
-                    "national_id": "National ID",
-                    "medical_license": "Medical License",
-                    "hospital_license": "Hospital License",
-                    "clinic_license": "Clinic License",
-                    "insurance": "Insurance",
-                    "experience_certificate": "Experience Certificate",
-                    "medical_degree": "Medical Degree",
-                    "upload": "Upload",
-                    "saveStep": "Save Step",
-                    "uploaded": "Document uploaded successfully!",
-                    "failedUpload": "Failed to upload document",
-                    "fillRequired": "Please upload at least one document"
-                },
                 "stepReview": {
                     "title": "Review Facility Info",
                     "name": "Name",
@@ -252,6 +240,14 @@ const resources = {
                     "saveStep": "Save Step",
                     "saved": "Data saved successfully!",
                     "fillRequired": "Please fill in the required information"
+                },
+                "steps": {
+                    "basic": "Basic Information",
+                    "license": "License Information",
+                    "documents": "Documents",
+                    "review": "Review & Submit",
+                    "Next": "Next",
+                    "Back": "Back",
                 },
                 notifications: {
                     success: "Success",
@@ -287,6 +283,60 @@ const resources = {
                         "Once approved, you can access your dashboard, manage doctors, and organize appointments.",
                 },
             },
+            "stepDocuments": {
+                "commercial_register": "Commercial Register",
+                "national_id": "National ID",
+                "medical_license": "Medical License",
+                "hospital_license": "Hospital License",
+                "clinic_license": "Clinic License",
+                "insurance": "Insurance",
+                "experience_certificate": "Experience Certificate",
+                "medical_degree": "Medical Degree",
+                "upload": "Upload",
+                "saveStep": "Save Step",
+                "uploaded": "Document uploaded successfully!",
+                "failedUpload": "Failed to upload document",
+                "fillRequired": "Please upload at least one document"
+            },
+            "doctor": {
+                "load": {
+                    "failed": "Failed to load doctors"
+                },
+                "delete": {
+                    "confirm": "Are you sure you want to delete this doctor?",
+                    "success": "Doctor deleted successfully",
+                    "failed": "Failed to delete doctor"
+                },
+                "actions": "Actions",
+                "view": "View",
+                "add": {
+                    "submit": "Add Doctor",
+                    "title": "Add Doctor",
+                    "name": "Full Name",
+                    "email": "Email",
+                    "phone": "Phone",
+                    "specialty": "Specialty",
+                    "medical_license": "Medical License",
+                    "national_id": "National ID",
+                    "insurance": "Insurance Document",
+                    "documents": "Documents",
+                    "review": "Review & Submit",
+                    "success": "Doctor added successfully",
+                    "failed": "Failed to add doctor"
+                },
+                "steps": {
+                    "basic": "Basic Info",
+                    "documents": "Upload Documents",
+                    "review": "Review & Submit"
+                },
+            },
+
+            facility: {
+                name: "Name",
+                phone: "Phone",
+                email: "Email",
+                status: "Status",
+            },
         }
     },
 
@@ -320,6 +370,7 @@ const resources = {
             },
 
             common: {
+                save: "حفظ",
                 learnMore: "اعرف المزيد",
                 getStarted: "ابدأ تسجيل منشأتك",
                 send: "إرسال",
@@ -328,7 +379,8 @@ const resources = {
                 email: "البريد الإلكتروني",
                 message: "الرسالة",
                 readMore: "اقرأ المزيد",
-                noFacilities: "لا توجد مرافق"
+                noFacilities: "لا توجد مرافق",
+                ChooseFile: "إختيار الملفات",
             },
 
             about: {
@@ -453,6 +505,7 @@ const resources = {
                 home: "الرئيسية",
                 profile: "الملف الشخصي",
                 facilities: "مرافق",
+                doctors: "الأطباء",
             },
 
             dashboard: {
@@ -511,20 +564,13 @@ const resources = {
                     "saved": "تم حفظ الخطوة بنجاح!",
                     "fillRequired": "الرجاء تعبئة الحقول المطلوبة"
                 },
-                "stepDocuments": {
-                    "commercial_register": "السجل التجاري",
-                    "national_id": "البطاقة الوطنية",
-                    "medical_license": "الرخصة الطبية",
-                    "hospital_license": "رخصة المستشفى",
-                    "clinic_license": "رخصة العيادة",
-                    "insurance": "التأمين",
-                    "experience_certificate": "شهادة الخبرة",
-                    "medical_degree": "الشهادة الطبية",
-                    "upload": "رفع",
-                    "saveStep": "حفظ الخطوة",
-                    "uploaded": "تم رفع المستند بنجاح!",
-                    "failedUpload": "فشل رفع المستند",
-                    "fillRequired": "الرجاء رفع مستند واحد على الأقل"
+                "steps": {
+                    "basic": "المعلومات الأساسية",
+                    "license": "بيانات الترخيص",
+                    "documents": "المستندات",
+                    "review": "المراجعة",
+                    "Next": "التالي",
+                    "Back": "السابق",
                 },
                 "stepReview": {
                     "title": "مراجعة بيانات المنشأة",
@@ -571,6 +617,61 @@ const resources = {
                     step5Desc:
                         "بعد الموافقة على التسجيل يمكنك الدخول إلى لوحة التحكم وإدارة الأطباء والمواعيد بسهولة.",
                 },
+            },
+            "stepDocuments": {
+                "commercial_register": "السجل التجاري",
+                "national_id": "البطاقة الوطنية",
+                "medical_license": "الرخصة الطبية",
+                "hospital_license": "رخصة المستشفى",
+                "clinic_license": "رخصة العيادة",
+                "insurance": "التأمين",
+                "experience_certificate": "شهادة الخبرة",
+                "medical_degree": "الشهادة الطبية",
+                "upload": "رفع",
+                "saveStep": "حفظ الخطوة",
+                "uploaded": "تم رفع المستند بنجاح!",
+                "failedUpload": "فشل رفع المستند",
+                "fillRequired": "الرجاء رفع مستند واحد على الأقل"
+            },
+
+            "doctor": {
+                "load": {
+                    "failed": "تعذر تحميل الأطباء"
+                },
+                "delete": {
+                    "confirm": "هل أنت متأكد من رغبتك في حذف هذا الطبيب؟",
+                    "success": "تم حذف الطبيب بنجاح",
+                    "failed": "تعذر حذف الطبيب"
+                },
+                "actions": "الإجراءات",
+                "view": "عرض",
+                "add": {
+                    "submit": "إضافة طبيب",
+                    "title": "إضافة طبيب",
+                    "name": "الاسم الكامل",
+                    "email": "البريد الإلكتروني",
+                    "phone": "رقم الهاتف",
+                    "specialty": "التخصص",
+                    "medical_license": "رخصة مزاولة المهنة الطبية",
+                    "national_id": "الهوية الوطنية",
+                    "insurance": "وثيقة التأمين",
+                    "documents": "المستندات",
+                    "review": "مراجعة وإرسال",
+                    "success": "تمت إضافة الطبيب بنجاح",
+                    "failed": "فشلت إضافة الطبيب"
+                },
+                "steps": {
+                    "basic": "المعلومات الأساسية",
+                    "documents": "تحميل المستندات",
+                    "review": "المراجعة والإرسال"
+                },
+            },
+
+            facility: {
+                name: "الإسم",
+                phone: "الهاتف",
+                email: "الإيميل",
+                status: "الحاله",
             },
         }
     }

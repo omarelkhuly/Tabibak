@@ -101,8 +101,14 @@ body.dark-mode .about-content p,
 body.dark-mode .specialties-title,
 body.dark-mode .features-title,
 body.dark-mode .registration-header h1,
-body.dark-mode .registration-header p {
+body.dark-mode .registration-header p,
+body.dark-mode .address_step,
+body.dark-mode .dp-title {
   color: #F5F5F5;
+}
+
+body.dark-mode .add-btn{
+  background: #4caf50;
 }
 
 body .text_light_mode {

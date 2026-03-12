@@ -4,6 +4,10 @@
     margin: auto;
 }
 
+.address_step{
+    color: #2a2a3d;
+}
+
 .step-buttons {
     display: flex;
     justify-content: space-between;

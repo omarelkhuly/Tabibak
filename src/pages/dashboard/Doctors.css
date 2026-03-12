@@ -1,0 +1,39 @@
+.doctors-page {
+    padding: 20px;
+}
+
+.doctors-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.add-btn {
+    background: #2c3e50;
+    color: white !important;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.doctors-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.doctors-table th,
+.doctors-table td {
+    border: 1px solid #e5e7eb;
+    padding: 8px 12px;
+    text-align: right;
+}
+
+html[dir="ltr"] .doctors-table th,
+html[dir="ltr"] .doctors-table td {
+    text-align: left;
+}
+
+.doctors-table th {
+    background-color: #1e1e2feb;
+}

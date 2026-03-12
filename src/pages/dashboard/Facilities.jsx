@@ -36,7 +36,7 @@ const Facilities = () => {
 
             <div className="facilities-header">
 
-                <h2>{t("sidebar.facilities")}</h2>
+                <h2 className="address_step">{t("sidebar.facilities")}</h2>
 
                 <Link
                     to="/dashboard/facilities/create"

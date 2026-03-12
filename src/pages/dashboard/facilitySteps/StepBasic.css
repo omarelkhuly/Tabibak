@@ -10,6 +10,7 @@
 /* grid */
 
 .form-grid {
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
@@ -46,25 +47,44 @@
     min-height: 100px;
     resize: vertical;
     margin-bottom: 20px;
+    width: 90%;
 }
 
 /* uploads */
 
-.image-uploads {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.image-uploads label {
+.file-upload {
     display: flex;
     flex-direction: column;
-    font-size: 13px;
-    color: #ccc;
+    gap: 6px;
+    cursor: pointer;
 }
 
-.image-uploads input {
-    margin-top: 6px;
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.upload-btn {
+    background: #2563eb;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    width: fit-content;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.upload-btn:hover {
+    background: #1d4ed8;
+}
+
+.file-name {
+    font-size: 12px;
+    color: #666;
 }
 
 /* responsive */

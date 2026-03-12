@@ -1,7 +1,7 @@
 // src/pages/dashboard/facilitySteps/StepDocuments.jsx
 import React, { useState } from "react";
 import { uploadDocumentApi } from "../../../api/facilityApi";
-import  {useNotification}   from "../../../context/NotificationContext";
+import { useNotification } from "../../../context/NotificationContext";
 import { useTranslation } from "react-i18next";
 import "./StepDocuments.css";
 
@@ -18,7 +18,7 @@ const documentsList = [
 
 const StepDocuments = ({ data, setData }) => {
     const { t } = useTranslation();
-    const { showNotification } = useNotification ();
+    const { showNotification } = useNotification();
 
     const [files, setFiles] = useState({});
 
@@ -37,7 +37,7 @@ const StepDocuments = ({ data, setData }) => {
         try {
             await uploadDocumentApi(formData);
 
-            showNotification("success", t("dashboard.stepDocuments.uploaded"));
+            showNotification("success", t("stepDocuments.uploaded"));
 
             // تحديث البيانات الأساسية
             setData(prev => ({
@@ -47,7 +47,7 @@ const StepDocuments = ({ data, setData }) => {
 
         } catch (error) {
             console.error(error);
-            showNotification("error", t("dashboard.stepDocuments.failedUpload"));
+            showNotification("error", t("stepDocuments.failedUpload"));
         }
     };
 
@@ -55,14 +55,14 @@ const StepDocuments = ({ data, setData }) => {
         // تحقق من وجود ملفات على الأقل
         const uploaded = Object.keys(files).filter(k => files[k]);
         if (uploaded.length === 0) {
-            showNotification("error", t("dashboard.stepDocuments.fillRequired"));
+            showNotification("error", t("stepDocuments.fillRequired"));
             return;
         }
         setData(prev => ({
             ...prev,
             documents: uploaded.map(k => files[k])
         }));
-        showNotification("success", t("dashboard.stepDocuments.saved"));
+        showNotification("success", t("stepDocuments.saved"));
     };
 
     return (
@@ -73,16 +73,28 @@ const StepDocuments = ({ data, setData }) => {
                     <div key={doc} className="document-card">
                         <p>{t(`stepDocuments.${doc}`)}</p>
 
-                        <input
-                            type="file"
-                            onChange={(e) => handleFile(doc, e.target.files[0])}
-                        />
+                        <label className="file-upload">
+                            <input
+                                type="file"
+                                onChange={(e) => handleFile(doc, e.target.files[0])}
+                            />
+
+                            <span className="upload-btn">
+                              { t("common.ChooseFile")}
+                            </span>
+
+                            {files[doc] && (
+                                <span className="file-name">
+                                    {files[doc].name}
+                                </span>
+                            )}
+                        </label>
 
                         {files[doc] && (
                             <div className="doc-preview">
                                 {files[doc].name}
                                 <button onClick={() => uploadFile(doc)}>
-                                    {t("dashboard.stepDocuments.upload")}
+                                    {t("stepDocuments.upload")}
                                 </button>
                             </div>
                         )}
@@ -92,7 +104,7 @@ const StepDocuments = ({ data, setData }) => {
             </div>
 
             <button className="save-step-btn" onClick={saveStep}>
-                {t("dashboard.stepDocuments.saveStep")}
+                {t("stepDocuments.saveStep")}
             </button>
         </div>
     );

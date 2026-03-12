@@ -31,3 +31,32 @@
     border-radius: 6px;
     cursor: pointer;
 }
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.upload-btn {
+    background: #2563eb;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.upload-btn:hover {
+    background: #1d4ed8;
+}
+
+.file-name {
+    font-size: 13px;
+    color: #555;
+}

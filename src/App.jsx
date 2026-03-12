@@ -7,6 +7,8 @@ import DashboardHome from "./pages/dashboard/DashboardHome";
 import DashboardProfile from "./pages/dashboard/DashboardProfile";
 import Facilities from "./pages/dashboard/Facilities";
 import CreateFacility from "./pages/dashboard/CreateFacility";
+import Doctors from "./pages/dashboard/Doctors";
+import AddDoctorWizard from "./pages/dashboard/AddDoctorWizard";
 import ProtectedRoute from "./components/DashboardComponent/ProtectedRoute";
 
 // Pages
@@ -47,13 +49,15 @@ function App() {
       {/* Dashboard Wrapper */}
       <Route path="/dashboard/*" element={
         <ProtectedRoute>
-        <DashboardLayout />
+          <DashboardLayout />
         </ProtectedRoute>
-        }>
+      }>
         <Route index element={<DashboardHome />} />
         <Route path="profile" element={<DashboardProfile />} />
         <Route path="facilities" element={<Facilities />} />
         <Route path="facilities/create" element={<CreateFacility />} />
+        <Route path="doctors" element={<Doctors />} />
+        <Route path="doctors/add" element={<AddDoctorWizard />} />
       </Route>
 
       <Route path="*" element={<Auth />} />

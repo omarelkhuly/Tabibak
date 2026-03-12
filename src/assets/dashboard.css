@@ -39,12 +39,12 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
+    height: auto;
     border-bottom: 1px solid #333;
 }
 
 .sidebar .logo {
-    font-size: 1.2em;
+    width: 85px;
 }
 
 /* nav */
