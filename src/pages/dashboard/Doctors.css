@@ -27,6 +27,7 @@
     border: 1px solid #e5e7eb;
     padding: 8px 12px;
     text-align: right;
+    color: #4caf50;
 }
 
 html[dir="ltr"] .doctors-table th,
@@ -48,11 +49,4 @@ html[dir="ltr"] .doctors-table td {
     border-collapse: collapse;
     min-width: 700px;
     /* مهم جداً للـ scroll */
-}
-
-.doctors-table th,
-.doctors-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
 }

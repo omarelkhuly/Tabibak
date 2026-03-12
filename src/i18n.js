@@ -33,6 +33,7 @@ const resources = {
                 rights: "All rights reserved."
             },
             common: {
+                saving:"Saving",
                 save: "Save",
                 ChooseFile: "Choose File",
                 learnMore: "Learn More",
@@ -370,6 +371,7 @@ const resources = {
             },
 
             common: {
+                saving:"رفع البيانات",
                 save: "حفظ",
                 learnMore: "اعرف المزيد",
                 getStarted: "ابدأ تسجيل منشأتك",

@@ -7,14 +7,19 @@ import { uploadDoctorDocumentApi } from "../../../api/doctorDocumentsApi";
 import "./DoctorSteps.css";
 
 const StepReviewDoctor = ({ data }) => {
+
     const { t } = useTranslation();
     const { showNotification } = useNotification();
 
     const [loading, setLoading] = useState(false);
 
     const handleSave = async () => {
+
         try {
+
             setLoading(true);
+
+            console.log("Creating doctor:", data);
 
             // 1️⃣ إنشاء الطبيب
             const res = await createDoctorApi({
@@ -24,79 +29,115 @@ const StepReviewDoctor = ({ data }) => {
                 specialty: data.specialty
             });
 
-            if (!res?.status) {
+            console.log("Create doctor response:", res);
+
+            if (!res || !res.status) {
+
                 showNotification("error", t("doctor.add.failed"));
                 return;
+
             }
 
             const doctorId = res?.data?.id;
 
             if (!doctorId) {
+
+                console.error("Doctor ID missing:", res);
+
                 showNotification("error", "Doctor ID not returned");
+
                 return;
+
             }
 
             // 2️⃣ رفع المستندات
             if (data.documents) {
+
                 for (const [type, file] of Object.entries(data.documents)) {
+
                     if (!file) continue;
 
-                    const formData = new FormData();
-                    formData.append("file", file);
-                    formData.append("type", type);
+                    try {
 
-                    await uploadDoctorDocumentApi(doctorId, formData);
+                        const formData = new FormData();
+                        formData.append("file", file);
+                        formData.append("type", type);
+
+                        console.log("Uploading document:", type);
+
+                        await uploadDoctorDocumentApi(doctorId, formData);
+
+                    } catch (docError) {
+
+                        console.error("Document upload failed:", type, docError);
+
+                    }
+
                 }
+
             }
 
             showNotification("success", t("doctor.add.success"));
 
         } catch (error) {
-            console.error(error);
+
+            console.error("Create doctor error:", error.response?.data || error);
+
             showNotification("error", t("doctor.add.failed"));
+
         } finally {
+
             setLoading(false);
+
         }
+
     };
 
     return (
+
         <div className="doctor-step">
 
             <h3>{t("doctor.add.review")}</h3>
 
-            <div className="review-card">
+            <div className="table-scroll">
 
-                <div className="review-row">
-                    <strong>{t("doctor.add.name")}:</strong>
-                    <span>{data?.name}</span>
-                </div>
+                <div className="review-card">
 
-                <div className="review-row">
-                    <strong>{t("doctor.add.email")}:</strong>
-                    <span>{data?.email}</span>
-                </div>
+                    <div className="review-row">
+                        <strong>{t("doctor.add.name")}:</strong>
+                        <span>{data?.name}</span>
+                    </div>
 
-                <div className="review-row">
-                    <strong>{t("doctor.add.phone")}:</strong>
-                    <span>{data?.phone}</span>
-                </div>
+                    <div className="review-row">
+                        <strong>{t("doctor.add.email")}:</strong>
+                        <span>{data?.email}</span>
+                    </div>
 
-                <div className="review-row">
-                    <strong>{t("doctor.add.specialty")}:</strong>
-                    <span>{data?.specialty}</span>
-                </div>
+                    <div className="review-row">
+                        <strong>{t("doctor.add.phone")}:</strong>
+                        <span>{data?.phone}</span>
+                    </div>
 
-                <div className="review-docs">
-                    <strong>{t("doctor.add.documents")}:</strong>
+                    <div className="review-row">
+                        <strong>{t("doctor.add.specialty")}:</strong>
+                        <span>{data?.specialty}</span>
+                    </div>
 
-                    <ul>
-                        {data?.documents &&
-                            Object.entries(data.documents).map(([type, file]) => (
-                                <li key={type}>
-                                    {t(`doctor.add.${type}`)} : {file?.name}
-                                </li>
-                            ))}
-                    </ul>
+                    <div className="review-docs">
+
+                        <strong>{t("doctor.add.documents")}:</strong>
+
+                        <ul>
+                            {data?.documents &&
+                                Object.entries(data.documents).map(([type, file]) => (
+                                    <li key={type}>
+                                        {t(`doctor.add.${type}`)} : {file?.name}
+                                    </li>
+                                ))}
+                        </ul>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -106,11 +147,15 @@ const StepReviewDoctor = ({ data }) => {
                 onClick={handleSave}
                 disabled={loading}
             >
+
                 {loading ? t("common.saving") : t("common.save")}
+
             </button>
 
         </div>
+
     );
+
 };
 
 export default StepReviewDoctor;

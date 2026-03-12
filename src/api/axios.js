@@ -3,7 +3,7 @@ import axios from "axios";
 
 // إنشاء instance
 const api = axios.create({
-  baseURL: "https://tabybak.com/api/provider/v1", 
+  baseURL: "https://tabybak.com/api/", 
   headers: {
     Accept: "application/json",
   },

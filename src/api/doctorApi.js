@@ -8,10 +8,10 @@ const headers = () => ({
 
 /* ================= GET DOCTORS ================= */
 
-export const getDoctorsApi = async (page = 1) => {
+export const getDoctorsApi = async () => {
     try {
 
-        const res = await api.get(`provider/v1/doctors?page=${page}`, {
+        const res = await api.get(`provider/v1/doctors`, {
             headers: headers()
         });
 
@@ -21,7 +21,6 @@ export const getDoctorsApi = async (page = 1) => {
 
     } catch (error) {
 
-        console.error("Get Doctors Error:", error.response?.status);
         console.error("Error Data:", error.response?.data);
 
         throw error;

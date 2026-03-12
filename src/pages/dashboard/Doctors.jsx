@@ -7,102 +7,169 @@ import { useTranslation } from "react-i18next";
 import "./Doctors.css";
 
 const Doctors = () => {
-    const { t } = useTranslation();
-    const { showNotification } = useNotification();
-    const navigate = useNavigate();
 
-    const [doctors, setDoctors] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
+  const { showNotification } = useNotification();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        loadDoctors();
-    }, []);
+  const [doctors, setDoctors] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const loadDoctors = async () => {
-        try {
+  useEffect(() => {
+    loadDoctors();
+  }, []);
 
-            const res = await getDoctorsApi(1);
+  const loadDoctors = async () => {
 
-            console.log("Doctors response:", res);
+    try {
 
-            setDoctors(res.data || res.data?.data || []);
+      const res = await getDoctorsApi();
 
-        } catch (error) {
+      console.log("Doctors response:", res);
 
-            console.error("Load doctors error:", error);
+      // استخراج array الأطباء بشكل آمن
+      const doctorsList =
+        Array.isArray(res) ? res :
+        Array.isArray(res.data) ? res.data :
+        Array.isArray(res.data?.data) ? res.data.data :
+        [];
 
-            showNotification("error", t("doctor.load.failed"));
+      setDoctors(doctorsList);
 
-        } finally {
+    } catch (error) {
 
-            setLoading(false);
+      console.error("Load doctors error:", error);
 
-        }
-    };
+      showNotification("error", t("doctor.load.failed"));
 
-    const handleDelete = async (id) => {
-        if (!window.confirm(t("doctor.delete.confirm"))) return;
-        try {
-            await deleteDoctorApi(id);
-            showNotification("success", t("doctor.delete.success"));
-            loadDoctors();
-        } catch (error) {
-            console.error(error);
-            showNotification("error", t("doctor.delete.failed"));
-        }
-    };
+    } finally {
 
-    return (
-        <div className="doctors-page">
-            <div className="doctors-header">
-                <h2 className="address_step">{t("sidebar.doctors")}</h2>
-                <button
-                    className="add-btn"
-                    onClick={() => navigate("/dashboard/doctors/add")}
-                >
-                    + {t("doctor.add.submit")}
-                </button>
-            </div>
+      setLoading(false);
 
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <div className="table-scroll">
-                <table className="doctors-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>{t("doctor.add.name")}</th>
-                            <th>{t("doctor.add.email")}</th>
-                            <th>{t("doctor.add.phone")}</th>
-                            <th>{t("doctor.add.specialty")}</th>
-                            <th>{t("doctor.actions")}</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {doctors.map((doc) => (
-                            <tr key={doc.id}>
-                                <td>{doc.id}</td>
-                                <td>{doc.name}</td>
-                                <td>{doc.email}</td>
-                                <td>{doc.phone}</td>
-                                <td>{doc.specialty}</td>
-                                <td>
-                                    <button onClick={() => navigate(`/dashboard/doctors/${doc.id}`)}>
-                                        {t("doctor.view")}
-                                    </button>
-                                    <button onClick={() => handleDelete(doc.id)}>
-                                        {t("doctor.delete.btn")}
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                </div>
-            )}
+    }
+
+  };
+
+  const handleDelete = async (id) => {
+
+    if (!window.confirm(t("doctor.delete.confirm"))) return;
+
+    try {
+
+      await deleteDoctorApi(id);
+
+      showNotification("success", t("doctor.delete.success"));
+
+      loadDoctors();
+
+    } catch (error) {
+
+      console.error(error);
+
+      showNotification("error", t("doctor.delete.failed"));
+
+    }
+
+  };
+
+  return (
+
+    <div className="doctors-page">
+
+      <div className="doctors-header">
+
+        <h2 className="address_step">
+          {t("sidebar.doctors")}
+        </h2>
+
+        <button
+          className="add-btn"
+          onClick={() => navigate("/dashboard/doctors/add")}
+        >
+          + {t("doctor.add.submit")}
+        </button>
+
+      </div>
+
+      {loading ? (
+
+        <p>Loading...</p>
+
+      ) : (
+
+        <div className="table-scroll">
+
+          <table className="doctors-table">
+
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>{t("doctor.add.name")}</th>
+                <th>{t("doctor.add.email")}</th>
+                <th>{t("doctor.add.phone")}</th>
+                <th>{t("doctor.add.specialty")}</th>
+                <th>{t("doctor.actions")}</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {doctors.length === 0 ? (
+
+                <tr>
+                  <td colSpan="6" style={{ textAlign: "center" }}>
+                    No doctors found
+                  </td>
+                </tr>
+
+              ) : (
+
+                doctors.map((doc) => (
+
+                  <tr key={doc.id}>
+
+                    <td>{doc.id}</td>
+                    <td>{doc.name}</td>
+                    <td>{doc.email}</td>
+                    <td>{doc.phone}</td>
+                    <td>{doc.specialty}</td>
+
+                    <td>
+
+                      <button
+                        onClick={() =>
+                          navigate(`/dashboard/doctors/${doc.id}`)
+                        }
+                      >
+                        {t("doctor.view")}
+                      </button>
+
+                      <button
+                        onClick={() => handleDelete(doc.id)}
+                      >
+                        {t("doctor.delete.btn")}
+                      </button>
+
+                    </td>
+
+                  </tr>
+
+                ))
+
+              )}
+
+            </tbody>
+
+          </table>
+
         </div>
-    );
+
+      )}
+
+    </div>
+
+  );
+
 };
 
 export default Doctors;

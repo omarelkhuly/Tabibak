@@ -109,7 +109,8 @@
 }
 
 .review-row strong,
-.review-docs strong {
+.review-docs strong,
+.review-row span {
     color: #374151;
 }
 

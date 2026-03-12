@@ -2,7 +2,6 @@
 .add-doctor-wizard {
     max-width: 800px;
     margin: 20px auto;
-    background: #fff;
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -58,7 +57,7 @@
     border-radius: 8px;
     padding: 12px 16px;
     margin-bottom: 12px;
-    background: #f9fafb;
+    /* background: #f9fafb; */
 }
 
 .file-upload:hover {
