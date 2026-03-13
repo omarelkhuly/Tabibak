@@ -1,10 +1,30 @@
 /* ================= WRAPPER ================= */
 
 .doctor-step {
-    background: #1e1e2f;
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid #4caf50;
+    background: radial-gradient(circle at top left, #020617 0, #020617 40%, #0b1120 100%);
+    padding: 26px 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+    position: relative;
+    overflow: hidden;
+    animation: doctor-step-fade-up 0.45s ease-out;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.doctor-step::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.14), transparent 55%);
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.doctor-step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 26px 60px rgba(15, 23, 42, 0.8);
+    border-color: rgba(59, 130, 246, 0.5);
 }
 
 /* ================= GRID ================= */
@@ -21,20 +41,28 @@
 .doctor-step input,
 .doctor-step select,
 .doctor-step textarea {
-    width: 90%;
+    width: 100%;
     padding: 10px 12px;
-    border-radius: 6px;
-    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
     font-size: 14px;
+<<<<<<< HEAD
     transition: all 0.2s;
     margin-bottom: 2%;
+=======
+    background-color: rgba(15, 23, 42, 0.92);
+    color: #e5e7eb;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+>>>>>>> 19b0e2862db7784fe672b81f1f4f01eefb1d8f37
 }
 
 .doctor-step input:focus,
 .doctor-step textarea:focus {
     outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6), 0 0 0 6px rgba(56, 189, 248, 0.12);
+    background-color: rgba(15, 23, 42, 1);
+    transform: translateY(-1px);
 }
 
 /* ================= DOCUMENTS ================= */
@@ -46,19 +74,22 @@
 }
 
 .file-upload {
-    border: 1px solid #4caf50;
-    border-radius: 8px;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 14px;
     padding: 18px;
     text-align: center;
     position: relative;
-    background: #1e1e2f;
-    transition: 0.2s;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
 }
 
 .file-upload:hover {
-    border-color: #4caf50;
-    background: #4caf50;
-    color: white !important;
+    border-color: #22c55e;
+    background: rgba(15, 23, 42, 0.95);
+    color: #e5e7eb !important;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
 }
 
 .file-upload input {
@@ -67,23 +98,33 @@
 
 .upload-btn {
     display: inline-block;
-    background: #2563eb;
+    background: linear-gradient(135deg, #22c55e, #3b82f6);
     color: #fff;
-    padding: 6px 14px;
-    border-radius: 6px;
+    padding: 7px 16px;
+    border-radius: 999px;
     font-size: 13px;
     cursor: pointer;
     margin-top: 8px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    box-shadow: 0 10px 26px rgba(34, 197, 94, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .upload-btn:hover {
-    background: #1d4ed8;
+    background: linear-gradient(135deg, #16a34a, #2563eb);
+    box-shadow: 0 14px 32px rgba(34, 197, 94, 0.55);
+    transform: translateY(-1px);
 }
 
 .file-name {
     display: block;
     margin-top: 10px;
     font-size: 13px;
+<<<<<<< HEAD
+=======
+    color: #e5e7eb;
+>>>>>>> 19b0e2862db7784fe672b81f1f4f01eefb1d8f37
     word-break: break-all;
 }
 
@@ -95,23 +136,23 @@
 }
 
 .review-card {
-    background: #f9fafb;
-    border-radius: 8px;
-    padding: 15px;
-    border: 1px solid #e5e7eb;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 14px;
+    padding: 18px 20px;
+    border: 1px solid rgba(148, 163, 184, 0.4);
 }
 
 .review-row {
     display: flex;
     justify-content: space-between;
-    padding: 6px 0;
+    padding: 8px 0;
     font-size: 14px;
 }
 
 .review-row strong,
 .review-docs strong,
 .review-row span {
-    color: #374151;
+    color: #e5e7eb;
 }
 
 .review-docs {
@@ -121,26 +162,47 @@
 .review-docs li {
     font-size: 13px;
     margin-bottom: 4px;
-    color: #555;
+    color: #cbd5f5;
 }
 
 /* ================= BUTTON ================= */
 
 .save-doctor-btn {
     margin-top: 20px;
-    background: #16a34a;
+    background: linear-gradient(135deg, #22c55e, #3b82f6);
     color: white;
     border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
+    padding: 11px 22px;
+    border-radius: 999px;
     cursor: pointer;
     font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    box-shadow: 0 16px 36px rgba(34, 197, 94, 0.6);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 }
 
 .save-doctor-btn:hover {
-    background: #15803d;
+    background: linear-gradient(135deg, #16a34a, #2563eb);
+    box-shadow: 0 22px 46px rgba(34, 197, 94, 0.75);
+    transform: translateY(-1px);
 }
 
 span.doc-title {
+<<<<<<< HEAD
     color: white;
+=======
+    color: #e5e7eb;
+}
+
+@keyframes doctor-step-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+>>>>>>> 19b0e2862db7784fe672b81f1f4f01eefb1d8f37
 }

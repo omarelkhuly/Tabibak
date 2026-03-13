@@ -16,12 +16,11 @@ const StepReviewDoctor = ({ data }) => {
     const handleSave = async () => {
 
         try {
-
             setLoading(true);
 
             console.log("Creating doctor:", data);
 
-            // 1️⃣ إنشاء الطبيب
+            // 1️⃣ Create doctor
             const res = await createDoctorApi({
                 name: data.name,
                 email: data.email,
@@ -50,20 +49,29 @@ const StepReviewDoctor = ({ data }) => {
 
             }
 
-            // 2️⃣ رفع المستندات
+            // 2️⃣ Upload documents
             if (data.documents) {
+
+                // Map UI field names to backend expected values
+                const TYPE_MAP = {
+                    medical_license: "doctor_license",
+                    national_id: "doctor_national_id",
+                    insurance: "contract", // or "certification" based on backend agreement
+                };
 
                 for (const [type, file] of Object.entries(data.documents)) {
 
                     if (!file) continue;
 
+                    const apiType = TYPE_MAP[type] || type;
+
                     try {
 
                         const formData = new FormData();
                         formData.append("file", file);
-                        formData.append("type", type);
+                        formData.append("type", apiType);
 
-                        console.log("Uploading document:", type);
+                        console.log("Uploading document:", type, "->", apiType);
 
                         await uploadDoctorDocumentApi(doctorId, formData);
 

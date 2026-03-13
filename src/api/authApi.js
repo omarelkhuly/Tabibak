@@ -8,7 +8,7 @@ const headers = () => ({
 
 /* ================= REGISTER ================= */
 export const registerApi = (data) => {
-  return api.post("/provider/v1/register", data, {
+  return api.post("/register", data, {
     headers: {
       ...headers(),
       "Content-Type": "multipart/form-data",
@@ -22,6 +22,26 @@ export const loginApi = (data) => {
     headers: {
       ...headers(),
       "Content-Type": "application/json",
+      "Accept-Language": "en",
+    },
+  });
+};
+
+/* ================= GET PROFILE ================= */
+export const getProfileApi = () => {
+  return api.get("/profile", {
+    headers: {
+      "Accept-Language": "en",
+    },
+  });
+};
+
+/* ================= UPDATE PROFILE ================= */
+export const updateProfileApi = (data) => {
+  return api.post("/profile", data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      "Accept-Language": "en",
     },
   });
 };
