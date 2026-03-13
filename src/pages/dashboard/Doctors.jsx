@@ -27,14 +27,19 @@ const Doctors = () => {
 
       console.log("Doctors response:", res);
 
-      // استخراج array الأطباء بشكل آمن
       const doctorsList =
         Array.isArray(res) ? res :
-        Array.isArray(res.data) ? res.data :
-        Array.isArray(res.data?.data) ? res.data.data :
-        [];
+          Array.isArray(res.data) ? res.data :
+            Array.isArray(res.data?.data) ? res.data.data :
+              [];
 
-      setDoctors(doctorsList);
+      // تحويل specialties إلى specialty string
+      const normalizedDoctors = doctorsList.map(doc => ({
+        ...doc,
+        specialty: doc.specialties?.map(s => s.name).join(", ") || "-"
+      }));
+
+      setDoctors(normalizedDoctors);
 
     } catch (error) {
 
@@ -136,7 +141,7 @@ const Doctors = () => {
 
                     <td>
 
-                      <button
+                      <button className="button_action Details"
                         onClick={() =>
                           navigate(`/dashboard/doctors/${doc.id}`)
                         }
@@ -144,7 +149,7 @@ const Doctors = () => {
                         {t("doctor.view")}
                       </button>
 
-                      <button
+                      <button className="button_action Delete"
                         onClick={() => handleDelete(doc.id)}
                       >
                         {t("doctor.delete.btn")}

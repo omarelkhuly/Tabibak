@@ -27,6 +27,7 @@
     border: 1px solid #d1d5db;
     font-size: 14px;
     transition: all 0.2s;
+    margin-bottom: 2%;
 }
 
 .doctor-step input:focus,
@@ -83,7 +84,6 @@
     display: block;
     margin-top: 10px;
     font-size: 13px;
-    color: #374151;
     word-break: break-all;
 }
 
@@ -142,5 +142,5 @@
 }
 
 span.doc-title {
-    color: #2a2a3d;
+    color: white;
 }

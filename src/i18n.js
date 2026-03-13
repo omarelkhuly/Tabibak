@@ -33,7 +33,8 @@ const resources = {
                 rights: "All rights reserved."
             },
             common: {
-                saving:"Saving",
+                back: "Back",
+                saving: "Saving",
                 save: "Save",
                 ChooseFile: "Choose File",
                 learnMore: "Learn More",
@@ -300,13 +301,16 @@ const resources = {
                 "fillRequired": "Please upload at least one document"
             },
             "doctor": {
+                "info": "Information",
                 "load": {
                     "failed": "Failed to load doctors"
                 },
                 "delete": {
                     "confirm": "Are you sure you want to delete this doctor?",
                     "success": "Doctor deleted successfully",
-                    "failed": "Failed to delete doctor"
+                    "failed": "Failed to delete doctor",
+                    "btn": "Delete",
+
                 },
                 "actions": "Actions",
                 "view": "View",
@@ -323,7 +327,8 @@ const resources = {
                     "documents": "Documents",
                     "review": "Review & Submit",
                     "success": "Doctor added successfully",
-                    "failed": "Failed to add doctor"
+                    "failed": "Failed to add doctor",
+                    "saveDocumentsAfterCreating": "Failed to add Documents",
                 },
                 "steps": {
                     "basic": "Basic Info",
@@ -338,7 +343,26 @@ const resources = {
                 email: "Email",
                 status: "Status",
             },
-        }
+            auth: {
+                "haveAccount":"Have Account",
+                "login": "Login",
+                "email": "Email",
+                "password": "Password",
+                "forgetPassword": "Forget Password",
+                "noAccount": "No Account? Create Account",
+                "register": "Register",
+                "name": "Name",
+                "phone": "Phone",
+                "selectCountry": "Select Country",
+                "selectCity": "Select City",
+                "confirmPassword": "Confirm Password",
+                "sendPin": "Send Pin Code",
+                "backToLogin": "Back to Login",
+                "resetPassword": "Reset Password",
+                "newPassword": "New Password",
+                "pinCode": "Pin Code"
+            },
+        },
     },
 
     ar: {
@@ -371,7 +395,8 @@ const resources = {
             },
 
             common: {
-                saving:"رفع البيانات",
+                back: "رجوع",
+                saving: "رفع البيانات",
                 save: "حفظ",
                 learnMore: "اعرف المزيد",
                 getStarted: "ابدأ تسجيل منشأتك",
@@ -637,13 +662,15 @@ const resources = {
             },
 
             "doctor": {
+                "info": "معلومات",
                 "load": {
                     "failed": "تعذر تحميل الأطباء"
                 },
                 "delete": {
                     "confirm": "هل أنت متأكد من رغبتك في حذف هذا الطبيب؟",
                     "success": "تم حذف الطبيب بنجاح",
-                    "failed": "تعذر حذف الطبيب"
+                    "failed": "تعذر حذف الطبيب",
+                    "btn": "يحذف",
                 },
                 "actions": "الإجراءات",
                 "view": "عرض",
@@ -661,6 +688,7 @@ const resources = {
                     "review": "مراجعة وإرسال",
                     "success": "تمت إضافة الطبيب بنجاح",
                     "failed": "فشلت إضافة الطبيب",
+                    "saveDocumentsAfterCreating": "فشل حفظ المستندات",
                 },
                 "steps": {
                     "basic": "المعلومات الأساسية",
@@ -675,7 +703,26 @@ const resources = {
                 email: "الإيميل",
                 status: "الحاله",
             },
-        }
+            auth: {
+                "haveAccount":"لديك حساب",
+                "login": "تسجيل الدخول",
+                "email": "البريد الإلكتروني",
+                "password": "كلمة المرور",
+                "forgetPassword": "نسيت كلمة المرور",
+                "noAccount": "لا تملك حساب؟ أنشئ حساب",
+                "register": "تسجيل",
+                "name": "الاسم",
+                "phone": "رقم الهاتف",
+                "selectCountry": "اختر الدولة",
+                "selectCity": "اختر المدينة",
+                "confirmPassword": "تأكيد كلمة المرور",
+                "sendPin": "إرسال رمز التحقق",
+                "backToLogin": "العودة لتسجيل الدخول",
+                "resetPassword": "إعادة تعيين كلمة المرور",
+                "newPassword": "كلمة المرور الجديدة",
+                "pinCode": "رمز التحقق"
+            },
+        },
     }
 
 };

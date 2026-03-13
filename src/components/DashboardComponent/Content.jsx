@@ -8,6 +8,7 @@ import Facilities from "@/pages/dashboard/Facilities";
 import Doctors from "@/pages/dashboard/Doctors";
 import CreateFacility from "@/pages/dashboard/CreateFacility";
 import AddDoctorWizard from "@/pages/dashboard/AddDoctorWizard";
+import DoctorDetails from "@/pages/dashboard/DoctorDetails";
 
 const Content = () => {
   return (
@@ -18,6 +19,7 @@ const Content = () => {
       <Route path="facilities/create" element={<CreateFacility />} />
       <Route path="doctors" element={<Doctors />} />
       <Route path="doctors/add" element={<AddDoctorWizard />} />
+      <Route path="doctors/:id" element={<DoctorDetails />} />
     </Routes>
   );
 };

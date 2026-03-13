@@ -9,7 +9,7 @@ export const NotificationProvider = ({ children }) => {
 
   const showNotification = (type, message) => {
     setNotification({ type, message });
-    setTimeout(() => setNotification({ type: "", message: "" }), 3000);
+    setTimeout(() => setNotification({ type: "", message: "" }), 10000);
   };
 
   return (

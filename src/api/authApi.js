@@ -1,79 +1,79 @@
 // src/api/authApi.js
 import api from "./axios";
+import i18n from "../i18n";
+
+const headers = () => ({
+  "Accept-Language": i18n.language || "en",
+});
 
 /* ================= REGISTER ================= */
 export const registerApi = (data) => {
-  return api.post("/register", data, {
+  return api.post("/provider/v1/register", data, {
     headers: {
+      ...headers(),
       "Content-Type": "multipart/form-data",
-      "Accept-Language": "en",
     },
   });
 };
 
 /* ================= LOGIN ================= */
 export const loginApi = (data) => {
-  return api.post("/login", data, {
+  return api.post("/provider/v1/login", data, {
     headers: {
+      ...headers(),
       "Content-Type": "application/json",
-      "Accept-Language": "en",
-    },
-  });
-};
-
-/* ================= GET PROFILE ================= */
-export const getProfileApi = () => {
-  return api.get("/profile", {
-    headers: {
-      "Accept-Language": "en",
-    },
-  });
-};
-
-/* ================= UPDATE PROFILE ================= */
-export const updateProfileApi = (data) => {
-  return api.post("/profile", data, {
-    headers: {
-      "Content-Type": "multipart/form-data",
-      "Accept-Language": "en",
     },
   });
 };
 
 /* ================= LOGOUT ================= */
 export const logoutApi = () => {
-  return api.post("/logout", {}, {
+  return api.post("/provider/v1/logout", {}, {
     headers: {
-      "Accept-Language": "en",
+      ...headers(),
     },
   });
 };
 
 /* ================= FORGET PASSWORD ================= */
 export const forgetPasswordApi = (email) => {
-  return api.post(`/forget-password?email=${email}`, null, {
-    headers: {
-      "Accept-Language": "en",
-    },
-  });
+  return api.post(
+    "/provider/v1/forget-password",
+    { email },
+    {
+      headers: {
+        ...headers(),
+        "Content-Type": "application/json",
+      },
+    }
+  );
 };
 
 /* ================= RESET PASSWORD ================= */
-export const resetPasswordApi = (data) => {
-  return api.post("/reset-password", data, {
-    headers: {
-      "Content-Type": "application/json",
-      "Accept-Language": "en",
+export const resetPasswordApi = ({ email, pin_code, password, password_confirmation }) => {
+  return api.post(
+    "/provider/v1/reset-password",
+    {
+      email,
+      pin_code,
+      password,
+      password_confirmation,
     },
-  });
+    {
+      headers: {
+        ...headers(),
+        "Content-Type": "application/json",
+      },
+    }
+  );
 };
 
 /* ================= CHANGE PASSWORD ================= */
 export const changePasswordApi = (data) => {
-  return api.post("/change-password", data, {
+  return api.post("/provider/v1/change-password", data, {
     headers: {
+      ...headers(),
       "Content-Type": "application/json",
-      "Accept-Language": "en",
     },
   });
 };

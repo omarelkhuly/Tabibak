@@ -20,9 +20,16 @@ const Facilities = () => {
         try {
             const res = await getDocumentsApi();
 
-            if (res.status) {
-                setFacilities(res.data || []);
-            }
+            console.log("Facilities API response:", res); // 🔍 افحص شكل البيانات
+
+            // استخراج array بشكل آمن
+            const facilitiesList =
+                Array.isArray(res) ? res :
+                    Array.isArray(res.data) ? res.data :
+                        Array.isArray(res.data?.data) ? res.data.data :
+                            [];
+
+            setFacilities(facilitiesList);
 
         } catch (error) {
             console.error("Facilities error:", error);

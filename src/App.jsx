@@ -9,6 +9,7 @@ import Facilities from "./pages/dashboard/Facilities";
 import CreateFacility from "./pages/dashboard/CreateFacility";
 import Doctors from "./pages/dashboard/Doctors";
 import AddDoctorWizard from "./pages/dashboard/AddDoctorWizard";
+import DoctorDetails from "./pages/dashboard/DoctorDetails";
 import ProtectedRoute from "./components/DashboardComponent/ProtectedRoute";
 
 // Pages
@@ -58,6 +59,7 @@ function App() {
         <Route path="facilities/create" element={<CreateFacility />} />
         <Route path="doctors" element={<Doctors />} />
         <Route path="doctors/add" element={<AddDoctorWizard />} />
+        <Route path="doctors/:id" element={<DoctorDetails />} />
       </Route>
 
       <Route path="*" element={<Auth />} />
